@@ -17,8 +17,8 @@ if (isset($_POST["date"])) {
     $lieux = $_POST['lieux'];
     $cours = $_POST['cours'];
 
-    $stmt = $conn->prepare("SELECT * FROM cours WHERE date = :date AND time = :time AND cours = :cours AND present ='non'");
-    $stmt->execute([':date' => $date, ':cours' => $cours, ':time' => $time]);
+    // $stmt = $conn->prepare("SELECT * FROM cours WHERE date = :date AND time = :time AND cours = :cours AND present ='non'");
+    // $stmt->execute([':date' => $date, ':cours' => $cours, ':time' => $time]);
 
     if ($stmt->rowCount() > 0) {
         $output = $stmt->fetchAll();

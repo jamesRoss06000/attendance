@@ -20,14 +20,17 @@
                 <h3 class="modal-title">Sélectionnez l'action à prendre</h3>
             </div>
             <div class="form-row modal-content" id="contentDiv">
-                <a href="http://localhost/Attendance%20App/addPlanning.php"><button type="submit" class="btn btn-success btn-width">
-                        Ajouter une leçon à la planification</button></a>
-                <br>
                 <a href="http://localhost/Attendance%20App/addGroupOfStudents.php"><button type="submit" class="btn btn-success btn-width">
                         Ajouter groupe d'étudiants et/ou une classe et durée</button></a>
                 <br>
+                <a href="http://localhost/Attendance%20App/addCoursPourClasse.php"><button type="submit" class="btn btn-success btn-width">
+                        Ajouter cours pour classe</button></a>
+                <br>
                 <a href="http://localhost/Attendance%20App/addEtudiantToCours.php"><button type="submit" class="btn btn-success btn-width">
                         Inscrire l'étudiant dans un leçon</button></a>
+                <br>
+                <a href="http://localhost/Attendance%20App/addPlanning.php"><button type="submit" class="btn btn-success btn-width">
+                        Ajouter une leçon à la planification</button></a>
                 <br>
                 <a href="http://localhost/Attendance%20App/addAbsences.php"><button type="submit" class="btn btn-success btn-width">Ajouter absence</button></a>
                 <br>

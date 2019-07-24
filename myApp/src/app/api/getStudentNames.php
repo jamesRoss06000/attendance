@@ -15,14 +15,15 @@ if (isset($_POST["date"])) {
     $id = $_GET['id'];
     $time = $_POST['time'];
     $cours = $_POST['cours'];
+    $classe = $_POST['classe'];
 
     $getName = $conn->prepare("SELECT nom FROM users WHERE id = :id");
     $getName->execute([':id' => $id]);
     $details = $getName->fetchAll();
     $name = $details[0]['nom'];
 
-    $stmt = $conn->prepare("SELECT * FROM cours WHERE intervenant = :name AND date = :date AND time = :time AND cours = :cours");
-    $stmt->execute([':name' => $name, ':date' => $date, ':cours' => $cours, ':time' => $time]);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
+    $stmt->execute([':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {    
         $output = $stmt->fetchAll();

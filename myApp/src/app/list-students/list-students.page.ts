@@ -64,18 +64,18 @@ buttonOff(event, i) {
   this.Auth.updateAttendanceDb2(id_student, name, date, time, cours, id);
 }
 
-  confirmAttendance(event, i) {
-    event.preventDefault();
-    console.log(this.students[i]);
-    const id_student = this.students[i].id;
-    const name = this.students[i].etudiant;
-    const date = this.students[i].date;
-    const time = this.students[i].time;
-    const cours = this.students[i].cours;
-    const url = window.location.href;
-    const id = url.substring(url.lastIndexOf('/') + 1);
-    this.Auth.updateAttendanceDb(id_student, name, date, time, cours, id);
-  }
+  // confirmAttendance(event, i) {
+  //   event.preventDefault();
+  //   console.log(this.students[i]);
+  //   const id_student = this.students[i].id;
+  //   const name = this.students[i].etudiant;
+  //   const date = this.students[i].date;
+  //   const time = this.students[i].time;
+  //   const cours = this.students[i].cours;
+  //   const url = window.location.href;
+  //   const id = url.substring(url.lastIndexOf('/') + 1);
+  //   this.Auth.updateAttendanceDb(id_student, name, date, time, cours, id);
+  // }
 
   signalAbsence(event) {
     event.preventDefault();
@@ -83,23 +83,28 @@ buttonOff(event, i) {
     const time = this.students[0].time;
     const cours = this.students[0].cours;
     const lieux = this.students[0].lieux;
-    const teacherId = this.students[0].teacherId;
+    const etudiant_nom = this.students[0].nom;
+    const etudiant_id = this.students[0].id;
+    // const teacherId = this.students[0].teacherId;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.Auth.updateAbsenceDb(date, time, cours, lieux, id);
+    this.Auth.updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id);
     alert("Mis à jour effectué");
-    this.router.navigate(['cours/', teacherId]);
+    this.router.navigate(['cours/', id]);
   }
 
   backPage(event) {
     event.preventDefault();
-    const id = this.students[0].teacherId;
+    const id = this.students[0].intervenant_id;
     const date = this.students[0].date;
     const time = this.students[0].time;
     const cours = this.students[0].cours;
     const lieux = this.students[0].lieux;
+    const etudiant_nom = this.students[0].nom;
+    const etudiant_id = this.students[0].id;
+    // const teacherId = this.students[0].teacherId;
     this.router.navigate(['/cours/', id]);
-    this.Auth.updateAbsenceDb(date, time, cours, lieux, id);
+    this.Auth.updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id);
     console.log(this.students);
   }
 

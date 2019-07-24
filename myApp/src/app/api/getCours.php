@@ -13,7 +13,7 @@ if (isset($_POST["date"])) {
     $date = $origDate;
     $id = $_GET['id'];
 
-    $stmt = $conn->prepare("SELECT * FROM planning WHERE intervenant = :id AND date = :date ORDER BY `time` ASC");
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE intervenant_id = :id AND date = :date ORDER BY `debut_am` ASC");
     $stmt->execute([':id' => $id, ':date' => $date]);
 
     if ($stmt->rowCount() > 0) {

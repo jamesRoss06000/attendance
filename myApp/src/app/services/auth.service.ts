@@ -37,7 +37,7 @@ export class AuthService {
       console.log(Object.values(data));
       let planningData = Object.values(data);
       const grabArray = planningData[0];
-      const id = grabArray.intervenant;
+      const id = grabArray.intervenant_id;
       let navExtras: NavigationExtras = {
         state: {
           planning: planningData
@@ -53,11 +53,12 @@ export class AuthService {
       });
   }
 
-  getStudentList(idTeacher, date, time, cours, id_planning) {
+  getStudentList(idTeacher, date, time, cours, classe, id_planning) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentNames.php?id=' + idTeacher, {
       date,
       time,
       cours,
+      classe,
       id_planning
     }).subscribe(data => {
       console.log(Object.values(data));
@@ -67,7 +68,7 @@ export class AuthService {
           students: studentData
         }
       }
-      this.router.navigate(['/list-students/', id_planning], navExtras);
+      this.router.navigate(['/list-students/', idTeacher], navExtras);
     },
       error => {
         console.log(error);
@@ -111,13 +112,15 @@ export class AuthService {
       });
   }
 
-  updateAbsenceDb(date, time, cours, lieux, id) {
+  updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAbsenceDb.php?id=' + id, {
       lieux,
       date,
       time,
       cours,
-      id
+      id,
+      etudiant_nom,
+      etudiant_id
     }).subscribe(data => {
       console.log(Object.values(data));
       let info = Object.values(data);

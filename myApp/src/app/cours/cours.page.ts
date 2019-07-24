@@ -23,12 +23,13 @@ export class CoursPage implements OnInit {
 
   showClasses(event, i) {
     event.preventDefault();
-    const idTeacher = this.planning[i].intervenant;
+    const idTeacher = this.planning[i].intervenant_id;
     let date = this.planning[i].date;
-    const time = this.planning[i].time;
+    const time = this.planning[i].debut_am;
     const cours = this.planning[i].cours;
+    const classe = this.planning[i].classe;
     const id_planning = this.planning[i].id_planning;
-    this.Auth.getStudentList(idTeacher, date, time, cours, id_planning);
+    this.Auth.getStudentList(idTeacher, date, time, cours, classe, id_planning);
   }
 
   ngOnInit() {
@@ -39,7 +40,7 @@ export class CoursPage implements OnInit {
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/home/', id]);
-    console.log(this.planning[0].etudiant);
+    // console.log(this.planning[0].etudiant);
   }
 
   logout() {
