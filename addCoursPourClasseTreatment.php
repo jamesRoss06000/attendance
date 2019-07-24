@@ -43,9 +43,10 @@ if (isset($_POST["classe"])) {
         if (($handle = fopen($_FILES["fileUpload"]["tmp_name"], "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
                 $num = count($data);
-                print_r($data);
+                // print_r($data);
                 if ($row > 1) {
-                    $origDate = date("Y-m-d", strtotime($data[0]));
+                    $dateFile = explode("/", $data[0]);
+                    $origDate = date("Y-m-d", mktime(0, 0, 0, $dateFile[1], $dateFile[0], $dateFile[2]));
                     $date = $origDate;
                     $lieux = $data[1];
                     $adresse = $data[2];
