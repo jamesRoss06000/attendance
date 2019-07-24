@@ -1,0 +1,34 @@
+body {
+    background-image: url(./img/exampleImage.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btn-width {
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 98%;
+}
+
+#radioDiv {
+    align-content: center;
+    text-align: center;
+}
+
+#contentDiv {
+    margin-left: 1px;
+}
+
+a {
+    width: 100%;
+}
+
+#myTable {
+    width: 98%;
+    margin-left: 5px;
+    text-align: center;
+}
+
+#fileUpload {
+    width: 100%;
+}

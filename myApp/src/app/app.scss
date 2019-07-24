@@ -1,0 +1,62 @@
+// App Styles
+// ----------------------------------------------------------------------------
+// Put style rules here that you want to apply to the entire application. These
+// styles are for the entire app and not just one component. Additionally, this
+// file can hold Sass mixins, functions, and placeholder classes to be imported
+// and used throughout the application.
+h2,
+h3 {
+  text-align: center;
+}
+
+.inputBox {
+  border: 1px solid rgb(69, 69, 69);
+  height: 35px;
+}
+
+ion-input,
+#dateInput,
+input {
+  height: 40px;
+  width: 100%;
+  color: rgb(69, 69, 69);
+  border: 1px solid rgb(69, 69, 69);
+}
+
+ion-button {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  background-color: #304C8B;
+  color: #f4f4f4;
+}
+
+ion-datetime {
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+// style="width: 100%; text-align: center;"
+
+.logout {
+  width: 100%;
+  color: antiquewhite;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: rgb(69, 69, 69);
+  padding-left: 10px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: rgb(69, 69, 69);
+  padding-left: 10px;
+}
+
+::placeholder {
+  color: rgb(69, 69, 69);
+  padding-left: 10px;
+}

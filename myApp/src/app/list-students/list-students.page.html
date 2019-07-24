@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h2>Étudiants attendus</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <body ng-app="myApp">
+    <div class="ion-padding" id="coursList">
+      <ion-button btnWide (click)="backPage($event)">
+        Page précédente
+      </ion-button>
+      <br>
+      <br>
+      <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+      <br>
+      <br>
+      <p>Cochez la case des élèves en classe</p>
+      <ion-list>
+        <ion-item *ngFor="let student of students; let i = index">
+          <ion-label>{{ student.etudiant }}</ion-label>
+          <ion-toggle (ionChange)="onChange($event, i)">
+          </ion-toggle>
+        </ion-item>
+        <ion-button (click)="signalAbsence($event)">
+          Confirmer
+        </ion-button>
+      </ion-list>
+      <br>
+      <ion-button class="logout" color="danger" (click)="logout()">
+        Quitter l'application
+      </ion-button>
+    </div>
+  </body>
+</ion-content>

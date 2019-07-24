@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h2>Cours du Jour</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <body ng-app="myApp">
+    <div class="ion-padding" id="coursList">
+      <ion-button btnWide (click)="backPage($event)">
+        Page précédente
+      </ion-button>
+      <br>
+      <br>
+      <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+      <br>
+      <br>
+      <ion-list>
+        <ion-card padding *ngFor="let cour of planning; let i = index">
+          <h2>{{ cour.cours }}</h2>
+          <p>Intervenant: {{ cour.intervenant }}</p>
+          <p>Heure: {{ cour.time }}</p>
+          <p>Date: {{ cour.date }}</p>
+          <p>Lieu: {{ cour.lieux }}</p>
+          <p>Durée: {{ cour.duration }}</p>
+        </ion-card>
+      </ion-list>
+      <br>
+      <ion-button class="logout" color="danger" (click)="logout()">
+        Quitter l'application
+      </ion-button>
+    </div>
+  </body>
+</ion-content>

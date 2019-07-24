@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h2>Attendance App</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" id="loginDiv">
+    <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+    <h2 class="ios title-ios hydrated">Bienvenue</h2>
+    <h3 class="ios title-ios hydrated">Veuillez-vous connecter</h3>
+
+    <form (submit)="loginUser($event)">
+      <ion-list ng-app="myApp" ng-controller="passwordControl">
+        <ion-input type="email" id="email" class="inputBox" placeholder="Votre Email" #email></ion-input>
+        <br>
+        <ion-input type="password" id="password" class="inputBox" placeholder="Votre Mot de Passe" #password>
+        </ion-input>
+        <br>
+        <input type="submit" class="dateBtn" value="Submit">
+      </ion-list>
+    </form>
+
+
+  </div>
+</ion-content>

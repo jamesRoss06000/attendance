@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h2>Créez nouveau RDV</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding" id="loginDiv">
+    <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+    <h2 class="ios title-ios hydrated">Remplissez les champs ci-dessous et confirmez</h2>
+
+    <form (submit)="createRDV($event)">
+      <ion-list ng-app="myApp" ng-controller="passwordControl">
+        <ion-input type="text" id="name" class="inputBox" placeholder="Nom d'étudiant" #name></ion-input>
+        <br>
+        <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #password>
+        </ion-input>
+        <br>
+        <ion-input type="time" id="time" class="inputBox" placeholder="Heure de RDV" #password>
+        </ion-input>
+        <br>
+        <ion-input type="lieu" id="lieu" class="inputBox" placeholder="Lieu de RDV" #password>
+        </ion-input>
+        <br>
+        <input type="submit" class="dateBtn" value="Submit">
+      </ion-list>
+    </form>
+
+
+  </div>
+</ion-content>
