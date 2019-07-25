@@ -21,101 +21,51 @@ export class ListStudentsPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
         this.students = this.router.getCurrentNavigation().extras.state.students;
       }
-
+      console.log("students", this.students);
     });
   }
 
-
-  // buttonOn(event, i) { 
-  //   event.preventDefault();
-  //   console.log(this.students[i]);
-  //   const id_student = this.students[i].id;
-  //   const name = this.students[i].etudiant;
-  //   const date = this.students[i].date;
-  //   const time = this.students[i].time;
-  //   const cours = this.students[i].cours;
-  //   const url = window.location.href;
-  //   const id = url.substring(url.lastIndexOf('/') + 1);
-  //   this.Auth.updateAttendanceDb(id_student, name, date, time, cours, id);
-  // }
-
-  // buttonOff(event, i) {
-  //   event.preventDefault();
-  //   console.log(this.students[i]);
-  //   const id_student = this.students[i].id;
-  //   const name = this.students[i].etudiant;
-  //   const date = this.students[i].date;
-  //   const time = this.students[i].time;
-  //   const cours = this.students[i].cours;
-  //   const url = window.location.href;
-  //   const id = url.substring(url.lastIndexOf('/') + 1);
-  //   this.Auth.updateAttendanceDb2(id_student, name, date, time, cours, id);
-  // }
-
-  // confirmAttendance(event, i) {
-  //   event.preventDefault();
-  //   console.log(this.students[i]);
-  //   const id_student = this.students[i].id;
-  //   const name = this.students[i].etudiant;
-  //   const date = this.students[i].date;
-  //   const time = this.students[i].time;
-  //   const cours = this.students[i].cours;
-  //   const url = window.location.href;
-  //   const id = url.substring(url.lastIndexOf('/') + 1);
-  //   this.Auth.updateAttendanceDb(id_student, name, date, time, cours, id);
-  // }
-
-onChange(event, i) {
+  onChange(event, i) {
     if (event.target.checked) {
-      // this.buttonOn(event, i);
-      this.students.value = true;
-      console.log(this.students.value, i);
+      this.students[i].value = true;
     }
     else {
-      // this.buttonOff(event, i)
-      this.students.value = false;
-      console.log(this.students.value, i);
+      this.students[i].value = false;
     }
   }
 
-  signalAbsence(event, i) {
+  signalAbsence(event, students) {
     event.preventDefault();
-    
-    //  loop through students to find which have false value, add to array ??
-     {
-      const date = this.students[0].date;
-      const time = this.students[0].time;
-      const cours = this.students[0].cours;
-      const lieux = this.students[0].lieux;
-      const etudiant_nom = this.students[0].nom;
-      const etudiant_id = this.students[0].id;
-      // const teacherId = this.students[0].teacherId;
-      const url = window.location.href;
-      const id = url.substring(url.lastIndexOf('/') + 1);
-      this.Auth.updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id);
-      alert("Mis à jour effectué");
-      this.router.navigate(['cours/', id]);
-    } 
-    else {
-      const url = window.location.href;
-      const id = url.substring(url.lastIndexOf('/') + 1);
-      alert("Mis à jour effectué");
-      this.router.navigate(['cours/', id]);
+    for (let i = 0; i < students.length; i++) {
+      if (!students[i].value || students[i].value == "undefined") {
+        students[i].value = false;
+        const date = students[i][1];
+        const cours = students[i][0];
+        const classe = students[i].classe;
+        const etudiant_nom = students[i].nom;
+        const etudiant_id = students[i].id;
+        const url = window.location.href;
+        const id = url.substring(url.lastIndexOf('/') + 1);
+        this.Auth.updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id);
+        this.router.navigate(['cours/', id]);
+        
+      }
+      console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
+      // console.log(students[i].id + " => " + students[i].value);
     }
+    alert("Mis à jour effectué");
   }
 
   backPage(event) {
     event.preventDefault();
     const id = this.students[0].intervenant_id;
     const date = this.students[0].date;
-    const time = this.students[0].time;
     const cours = this.students[0].cours;
-    const lieux = this.students[0].lieux;
+    const classe = this.students[0].classe;
     const etudiant_nom = this.students[0].nom;
     const etudiant_id = this.students[0].id;
-    // const teacherId = this.students[0].teacherId;
     this.router.navigate(['/cours/', id]);
-    this.Auth.updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id);
+    this.Auth.updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id);
     console.log(this.students);
   }
 

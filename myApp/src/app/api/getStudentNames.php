@@ -25,8 +25,12 @@ if (isset($_POST["date"])) {
     $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
     $stmt->execute([':classe' => $classe]);
 
-    if ($stmt->rowCount() > 0) {    
+    if ($stmt->rowCount() > 0) {
         $output = $stmt->fetchAll();
+        for ($i = 0; $i < sizeof($output); $i++) {
+
+            array_push($output[$i], $cours, $date);
+        }
         echo json_encode($output);
     } else {
         $errors = "No data found for this date";
