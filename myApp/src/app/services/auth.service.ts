@@ -75,42 +75,42 @@ export class AuthService {
       });
   }
 
-  updateAttendanceDb(id_student, name, date, time, cours, id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAttendanceDb.php?id=' + id, {
-      id_student,
-      name,
-      date,
-      time,
-      cours,
-      id
-    }).subscribe(data => {
-      let navExtras: NavigationExtras = {
-      }
-      this.router.navigate(['/list-students/', id], navExtras);
-    },
-      error => {
-        console.log(error);
-      });
-  }
+  // updateAttendanceDb(id_student, name, date, time, cours, id) {
+  //   return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAttendanceDb.php?id=' + id, {
+  //     id_student,
+  //     name,
+  //     date,
+  //     time,
+  //     cours,
+  //     id
+  //   }).subscribe(data => {
+  //     let navExtras: NavigationExtras = {
+  //     }
+  //     this.router.navigate(['/list-students/', id], navExtras);
+  //   },
+  //     error => {
+  //       console.log(error);
+  //     });
+  // }
 
-  updateAttendanceDb2(id_student, name, date, time, cours, id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAttendanceDb2.php?id=' + id, {
-      id_student,
-      name,
-      date,
-      time,
-      cours,
-      id
-    }).subscribe(data => {
-      console.log(data);
-      let navExtras: NavigationExtras = {
-      }
-      this.router.navigate(['/list-students/', id], navExtras);
-    },
-      error => {
-        console.log(error);
-      });
-  }
+  // updateAttendanceDb2(id_student, name, date, time, cours, id) {
+  //   return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAttendanceDb2.php?id=' + id, {
+  //     id_student,
+  //     name,
+  //     date,
+  //     time,
+  //     cours,
+  //     id
+  //   }).subscribe(data => {
+  //     console.log(data);
+  //     let navExtras: NavigationExtras = {
+  //     }
+  //     this.router.navigate(['/list-students/', id], navExtras);
+  //   },
+  //     error => {
+  //       console.log(error);
+  //     });
+  // }
 
   updateAbsenceDb(date, time, cours, lieux, id, etudiant_nom, etudiant_id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAbsenceDb.php?id=' + id, {
