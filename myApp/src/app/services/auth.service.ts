@@ -102,21 +102,21 @@ export class AuthService {
       });
   }
 
-  getStudentCours(date, idStudent) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentCours.php?id=' + idStudent, {
+  getStudentCours(date, id) {
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentCours.php?id=' + id, {
       date,
     }).subscribe(data => {
       console.log(Object.values(data));
       let planningData = Object.values(data);
       const grabArray = planningData[0];
-      const id = grabArray.etudiant;
-      if (id !== undefined) {
+      const classe = grabArray.classe;
+      if (classe !== undefined) {
         let navExtras: NavigationExtras = {
           state: {
             planning: planningData,
           }
         }
-        this.router.navigate(['/agenda/', idStudent], navExtras);
+        this.router.navigate(['/agenda/', id], navExtras);
       };
       if (planningData.length == 27) {
         alert("Aucune leçon prévue pour cette date")

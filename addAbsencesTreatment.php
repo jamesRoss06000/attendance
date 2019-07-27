@@ -11,6 +11,7 @@ function verifyFields($field)
     $etudiant = filter_input(INPUT_POST, "etudiant");
     $justificatif = filter_input(INPUT_POST, "justificatif");
     $cours = filter_input(INPUT_POST, "cours");
+    $date = filter_input(INPUT_POST, "date");
 
     $msgReturn = "";
 
@@ -26,13 +27,18 @@ function verifyFields($field)
             }
             break;
         case "justificatif":
-            if ($justificatif == "" && $justified ="oui") {
+            if ($justificatif == "" && $justified = "oui") {
                 $msgReturn .= "Please select justification for absence<br>";
             }
             break;
         case "cours":
             if ($cours == "") {
                 $msgReturn .= "Please select lesson<br>";
+            }
+            break;
+        case "date":
+            if ($date == "") {
+                $msgReturn .= "Please select date<br>";
             }
             break;
     }
@@ -58,15 +64,18 @@ if (isset($_POST["classe"], $_POST["etudiant"], $_POST["justificatif"], $_POST["
         $justified = filter_input(INPUT_POST, "justified");
         $justificatif = filter_input(INPUT_POST, "justificatif");
         $cours = filter_input(INPUT_POST, "cours");
+        $date = filter_input(INPUT_POST, "date");
+
+        
 
         $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-        } else {                              
-            $sql = $conn->prepare("INSERT INTO `absences`(`id`, `classe`, `etudiant`, `justified`, `justificatif`, `cours`) VALUES (NULL, :classe,  :etudiant, :justified, :justificatif, :cours)");
-            $sql->execute([':classe' => $classe, ':etudiant' => $etudiant, ':justified' => $justified, ':justificatif' => $justificatif, ':cours' => $cours]);
+        } else {
+            $sql = $conn->prepare("INSERT INTO `absences`(`id`, `date`, `cours`, `classe`, `etudiant`, `etudiant_id`, `justified`, `justificatif`) VALUES (NULL, :date, :cours, :classe,  :etudiant, :etudiant_id, :justified, :justificatif, :cours)");
+            $sql->execute([':classe' => $classe, ':etudiant' => $etudiant, ':etudiant_id' => $etudiant_id, ':justified' => $justified, ':justificatif' => $justificatif, ':cours' => $cours, ':date' => $date]);
             header('Location: addAbsences.php?id=Database_updated');
         }
         $conn->close();

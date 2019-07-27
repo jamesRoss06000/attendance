@@ -14,13 +14,14 @@ if (isset($_POST["date"])) {
     $date = $origDate;
     $id = $_GET['id'];
 
-    $getStudent = $conn->prepare("SELECT nom FROM users WHERE id = :id");
+    $getStudent = $conn->prepare("SELECT * FROM users WHERE id = :id");
     $getStudent->execute([':id' => $id]);
     $studentDetails = $getStudent->fetchAll();
-    $studentName = $studentDetails[0]['nom'];
+    $studentClasse = $studentDetails[0]['classe'];
+    $studentNom = $studentDetails[0]['nom'];
 
-    $stmt = $conn->prepare("SELECT * FROM cours WHERE etudiant = :studentName AND date = :date ORDER BY `time` ASC");
-    $stmt->execute([':date' => $date, ':studentName' => $studentName]);
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE `classe` = (:studentClasse OR :studentNom) AND `date` = :date ORDER BY `debut_am` ASC");
+    $stmt->execute([':date' => $date, ':studentClasse' => $studentClasse, ':studentNom' => $studentNom]);
 
     if ($stmt->rowCount() > 0) {
         $output = array();

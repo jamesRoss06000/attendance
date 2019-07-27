@@ -106,6 +106,9 @@ require_once("connection.php");
                             ?>
                         </select>
                     </div>
+                    <div class="form-group col-md-12">
+                        <input type="date" name="date" id="date" class="form-control" placeholder="Selectionez le date">
+                    </div>
                     <br>
                     <button type="submit" class="btn btn-success btn-width">Ajouter information</button>
                     <a href="http://localhost/Attendance%20App/mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
