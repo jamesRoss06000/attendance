@@ -22,13 +22,13 @@
         <ion-card padding *ngFor="let cour of planning; let i = index" (click)="showClasses($event, i)">
           <h2>{{ cour.cours }}</h2>
           <h3>{{ cour.theme }}</h3>
+          <p>Lieu: {{ cour.lieux }},{{ cour.adresse }}</p>
           <p>Debut AM: {{ cour.debut_am }}</p>
           <p>Fin AM: {{ cour.fin_am }}</p>
           <p>Debut PM: {{ cour.debut_pm }}</p>
           <p>Fin PM: {{ cour.fin_pm }}</p>
           <p>Date: {{ cour.date }}</p>
-          <p>Lieux: {{ cour.lieux }}</p>
-          <p>Adresse: {{ cour.adresse }}</p>
+          <p>Classe: {{ cour.classe }}</p>
         </ion-card>
       </ion-list>
       <br>

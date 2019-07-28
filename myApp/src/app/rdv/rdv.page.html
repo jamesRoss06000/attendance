@@ -8,12 +8,25 @@
 
 <ion-content>
   <div class="ion-padding" id="loginDiv">
+    <ion-button btnWide (click)="backPage($event)">
+      Page précédente
+    </ion-button>
+    <br>
+    <br>
     <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
     <h2 class="ios title-ios hydrated">Remplissez les champs ci-dessous et confirmez</h2>
 
-    <form (submit)="createRDV($event)">
-      <ion-list ng-app="myApp" ng-controller="passwordControl">
-        <ion-input type="text" id="name" class="inputBox" placeholder="Nom d'étudiant" #name></ion-input>
+    <form (submit)="confirmClasse($event, $classes)">
+      <ion-list ng-app="myApp">
+        <ion-select type="text" id="classe" name="classe" (ionChange)="onSelectChange($event)"
+          placeholder="Selectionnez la classe" class="inputBox" #classe>
+          <ion-select-option *ngFor="let classe of classes; let i = index" [value]="">{{ classe.classe }}
+          </ion-select-option>
+        </ion-select>
+        <br>
+        <ion-select type="text" id="name" name="name" placeholder="Selectionnez la classe" class="inputBox" #name>
+          <ion-select-option *ngFor="let name of names" [value]="">{{ name.nom }} </ion-select-option>
+        </ion-select>
         <br>
         <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #password>
         </ion-input>
@@ -25,9 +38,11 @@
         </ion-input>
         <br>
         <input type="submit" class="dateBtn" value="Submit">
+        <br>
+        <ion-button class="logout" color="danger" (click)="logout()">
+          Quitter l'application
+        </ion-button>
       </ion-list>
     </form>
-
-
   </div>
 </ion-content>

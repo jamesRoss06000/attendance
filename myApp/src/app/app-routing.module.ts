@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'list-students/:id', loadChildren: './list-students/list-students.module#ListStudentsPageModule' },
   { path: 'agenda/:id', loadChildren: './agenda/agenda.module#AgendaPageModule' },
   { path: 'studentdate/:id', loadChildren: './studentdate/studentdate.module#StudentdatePageModule' },
-  { path: 'rdv', loadChildren: './rdv/rdv.module#RdvPageModule' },
+  { path: 'rdv/:id', loadChildren: './rdv/rdv.module#RdvPageModule' },
+  { path: 'teacherdate/:id', loadChildren: './teacherdate/teacherdate.module#TeacherdatePageModule' },
 ];
 
 @NgModule({

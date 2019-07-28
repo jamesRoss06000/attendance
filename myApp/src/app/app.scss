@@ -14,16 +14,14 @@ h3 {
   height: 35px;
 }
 
-ion-input,
-#dateInput,
-input {
+.classList, ion-input, #dateInput, input {
   height: 40px;
   width: 100%;
   color: rgb(69, 69, 69);
   border: 1px solid rgb(69, 69, 69);
 }
 
-ion-button {
+ion-button, .dateBtn {
   width: 100%;
   text-align: center;
   font-size: 14px;

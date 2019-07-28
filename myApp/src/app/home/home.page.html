@@ -1,27 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <h2>Attendance App</h2>
+      <h2>Menu</h2>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding" id="loginDiv">
-    <br>
-    <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
-    <br>
-    <br>
-    <form (submit)="enterDate($event)">
-      <ion-item id="dateInput">
-        <ion-datetime display-format="YYYY MMM DD" min="2018" max="2050" id="date" #date placeholder="Sélectionnez la date ici"></ion-datetime>
-      </ion-item>
+
+  <body ng-app="myApp">
+    <div class="ion-padding" id="coursList">
       <br>
-      <input class="dateBtn" type="submit" value="Submit">
-    </form>
+      <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+      <br>
+      <br>
+      <ion-button btnWide (click)="goToDateSelect($event)">
+        Agenda
+      </ion-button>
+      <br>
+      <ion-button btnWide (click)="addRdv($event)">
+        Ajoute RDV 
+      </ion-button>
       <br>
       <ion-button class="logout" color="danger" (click)="logout()">
         Quitter l'application
       </ion-button>
-  </div>
+    </div>
+  </body>
 </ion-content>

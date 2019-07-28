@@ -126,4 +126,53 @@ export class AuthService {
         console.log(error);
       });
   }
+
+  getRdvInfo(id) {
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getRdvInfo.php?id=' + id, {
+      id
+    }).subscribe(data => {
+      console.log(Object.values(data));
+      let classesData = Object.values(data);
+      const grabArray = classesData[0].classe;
+      if (grabArray !== undefined) {
+        let navExtras: NavigationExtras = {
+          state: {
+            classes: classesData,
+          }
+        }
+        this.router.navigate(['/rdv/', id], navExtras);
+      };
+      if (classesData.length == 0) {
+        alert("Aucune data")
+      }
+    },
+      error => {
+        console.log(error);
+      });
+  }
+
+  rdvListStudents(chosenClasse, id){
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getRdvNameList.php?id=' + id, {
+      chosenClasse
+    }).subscribe(data => {
+      console.log(Object.values(data));
+      let namesData = Object.values(data);
+      const grabArray = namesData[0].classe;
+      if (grabArray !== undefined) {
+        let navExtras: NavigationExtras = {
+          state: {
+            names: namesData,
+          }
+        }
+        // this.router.navigate(['/rdv/', id], navExtras);
+      };
+      if (namesData.length == 0) {
+        alert("Aucune data")
+      }
+    },
+      error => {
+        console.log(error);
+      });
+  }
 }
+

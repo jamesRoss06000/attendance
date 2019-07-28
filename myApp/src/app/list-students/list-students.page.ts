@@ -48,9 +48,8 @@ export class ListStudentsPage implements OnInit {
         const id = url.substring(url.lastIndexOf('/') + 1);
         this.Auth.updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id);
         this.router.navigate(['cours/', id]);
-        
       }
-      console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
+      // console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
       // console.log(students[i].id + " => " + students[i].value);
     }
     alert("Mis à jour effectué");
@@ -58,14 +57,12 @@ export class ListStudentsPage implements OnInit {
 
   backPage(event) {
     event.preventDefault();
-    const id = this.students[0].intervenant_id;
     const date = this.students[0].date;
-    const cours = this.students[0].cours;
-    const classe = this.students[0].classe;
-    const etudiant_nom = this.students[0].nom;
-    const etudiant_id = this.students[0].id;
-    this.router.navigate(['/cours/', id]);
-    this.Auth.updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id);
+    const url = window.location.href;
+    const id_intervenant = url.substring(url.lastIndexOf('/') + 1);
+    this.router.navigate(['/cours/', id_intervenant]);
+    this.Auth.getCoursList(date, id_intervenant);
+
     console.log(this.students);
   }
 

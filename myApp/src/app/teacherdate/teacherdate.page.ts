@@ -5,34 +5,32 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-teacherdate',
+  templateUrl: 'teacherdate.page.html',
+  styleUrls: ['teacherdate.page.scss'],
 })
-export class HomePage {
-  classes: any;
+export class TeacherdatePage {
+
   authState$: Observable<boolean>;
 
-  constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
-    this.route.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation().extras.state) {
-        this.classes = this.router.getCurrentNavigation().extras.state.classes;
-      }
-    });
-  }
+  constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) { }
 
-  goToDateSelect(event) {
+  backPage(event) {
     event.preventDefault();
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.router.navigate(['/teacherdate/', id]);
+    this.router.navigate(['/home/', id]);
+    // console.log(this.students);
   }
 
-  addRdv(event) {
+  enterDate(event) {
     event.preventDefault();
+    const target = event.target;
+    const date = target.querySelector('#date').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.Auth.getRdvInfo(id);
+    console.log(id);
+    this.Auth.getCoursList(date, id);
   }
 
   logout() {

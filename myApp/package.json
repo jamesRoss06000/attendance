@@ -26,6 +26,7 @@
     "@ionic/angular": "^4.6.0",
     "cordova-android": "^8.0.0",
     "core-js": "^2.5.4",
+    "ionic-select-searchable": "^2.10.0",
     "php": "0.0.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",

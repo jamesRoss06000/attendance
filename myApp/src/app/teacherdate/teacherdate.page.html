@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h2>Attendance App</h2>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-button btnWide (click)="backPage($event)">
+      Page précédente
+    </ion-button>
+    <br>
+    <br>
+    <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
+    <br>
+    <br>
+    <form (submit)="enterDate($event)">
+      <ion-item id="dateInput">
+        <ion-datetime display-format="YYYY MMM DD" min="2018" max="2050" id="date" #date
+          placeholder="Sélectionnez la date ici"></ion-datetime>
+      </ion-item>
+      <br>
+      <input class="dateBtn" type="submit" value="Submit">
+    </form>
+    <br>
+    <ion-button class="logout" color="danger" (click)="logout()">
+      Quitter l'application
+    </ion-button>
+  </div>
+</ion-content>

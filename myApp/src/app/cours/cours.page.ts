@@ -39,7 +39,7 @@ export class CoursPage implements OnInit {
     event.preventDefault();
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.router.navigate(['/home/', id]);
+    this.router.navigate(['/teacherdate/', id]);
     // console.log(this.planning[0].etudiant);
   }
 
