@@ -12,6 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 })
 export class RdvPage implements OnInit {
   classes: any;
+  lieux: any;
   names: any;
   authState$: Observable<boolean>;
   value: any;
@@ -19,7 +20,9 @@ export class RdvPage implements OnInit {
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute, private changeRef: ChangeDetectorRef) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.classes = this.router.getCurrentNavigation().extras.state.classes;
+        this.classes = this.router.getCurrentNavigation().extras.state.classes[0];
+        this.lieux = this.router.getCurrentNavigation().extras.state.classes[1];
+        console.log(this.classes, this.lieux);
       }
       if (this.router.getCurrentNavigation().extras.state) {
         this.names = this.router.getCurrentNavigation().extras.state.names;
@@ -43,7 +46,7 @@ export class RdvPage implements OnInit {
     }
   }
 
-  rdvListStudents(chosenClasse, id){
+  rdvListStudents(chosenClasse, id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getRdvNameList.php?id=' + id, {
       chosenClasse
     }).subscribe(data => {

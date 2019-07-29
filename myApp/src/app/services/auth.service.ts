@@ -133,7 +133,7 @@ export class AuthService {
     }).subscribe(data => {
       console.log(Object.values(data));
       let classesData = Object.values(data);
-      const grabArray = classesData[0].classe;
+      const grabArray = classesData[0][0].classe;
       if (grabArray !== undefined) {
         let navExtras: NavigationExtras = {
           state: {

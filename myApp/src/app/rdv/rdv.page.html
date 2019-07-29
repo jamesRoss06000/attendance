@@ -34,8 +34,9 @@
         <ion-input type="time" id="time" class="inputBox" placeholder="Heure de RDV" #password>
         </ion-input>
         <br>
-        <ion-input type="lieu" id="lieu" class="inputBox" placeholder="Lieu de RDV" #password>
-        </ion-input>
+        <ion-select type="text" id="lieu" name="lieu" placeholder="Selectionnez le campus'" class="inputBox" #lieu>
+          <ion-select-option *ngFor="let lieu of lieux" [value]="">{{ lieu.campus }} </ion-select-option>
+        </ion-select>
         <br>
         <input type="submit" class="dateBtn" value="CONFIRMEZ">
         <br>
