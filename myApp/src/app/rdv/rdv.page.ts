@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import {ChangeDetectorRef} from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-rdv',
@@ -26,6 +26,7 @@ export class RdvPage implements OnInit {
       }
     });
   }
+  
   onSelectChange(event, i) {
     if (event.target) {
       this.classes.value = true;
@@ -34,10 +35,9 @@ export class RdvPage implements OnInit {
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       this.Auth.rdvListStudents(chosenClasse, id);
-      setTimeout(() => {
-        this.changeRef.detectChanges();
-      },2000)
-
+      // setTimeout(() => {
+      //   this.changeRef.detectChanges();
+      // },2000)
     }
     else {
       this.classes.value = false;
@@ -47,10 +47,13 @@ export class RdvPage implements OnInit {
 
   createRdv(event) {
     event.preventDefault();
-      console.log(this.names, this.classes);
+    console.log(this.names, this.classes);
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.changeRef.detectChanges();
+    }, 2000)
   }
 
   backPage(event) {

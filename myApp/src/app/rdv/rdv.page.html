@@ -16,7 +16,7 @@
     <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
     <h2 class="ios title-ios hydrated">Remplissez les champs ci-dessous et confirmez</h2>
 
-    <form (submit)="confirmClasse($event, $classes)">
+    <form (submit)="createRdv($event, $classes)">
       <ion-list ng-app="myApp">
         <ion-select type="text" id="classe" name="classe" (ionChange)="onSelectChange($event)"
           placeholder="Selectionnez la classe" class="inputBox" #classe>
@@ -24,7 +24,7 @@
           </ion-select-option>
         </ion-select>
         <br>
-        <ion-select type="text" id="name" name="name" placeholder="Selectionnez la classe" class="inputBox" #name>
+        <ion-select type="text" id="name" name="name" placeholder="Selectionnez l'étudiant'" class="inputBox" #name>
           <ion-select-option *ngFor="let name of names" [value]="">{{ name.nom }} </ion-select-option>
         </ion-select>
         <br>
@@ -37,7 +37,7 @@
         <ion-input type="lieu" id="lieu" class="inputBox" placeholder="Lieu de RDV" #password>
         </ion-input>
         <br>
-        <input type="submit" class="dateBtn" value="Submit">
+        <input type="submit" class="dateBtn" value="CONFIRMEZ">
         <br>
         <ion-button class="logout" color="danger" (click)="logout()">
           Quitter l'application
