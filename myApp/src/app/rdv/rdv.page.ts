@@ -35,6 +35,7 @@ export class RdvPage implements OnInit {
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       this.rdvListStudents(chosenClasse, id);
+      console.log("test");
     }
     else {
       this.classes.value = false;
