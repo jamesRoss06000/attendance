@@ -26,7 +26,7 @@ export class RdvPage implements OnInit {
       }
     });
   }
-  
+
   onSelectChange(event, i) {
     if (event.target) {
       this.classes.value = true;
@@ -34,10 +34,7 @@ export class RdvPage implements OnInit {
       const chosenClasse = event.target.value;
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
-      this.Auth.rdvListStudents(chosenClasse, id);
-      // setTimeout(() => {
-      //   this.changeRef.detectChanges();
-      // },2000)
+      this.rdvListStudents(chosenClasse, id);
     }
     else {
       this.classes.value = false;
@@ -45,6 +42,16 @@ export class RdvPage implements OnInit {
     }
   }
 
+  rdvListStudents(chosenClasse, id){
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getRdvNameList.php?id=' + id, {
+      chosenClasse
+    }).subscribe(data => {
+      this.names = Object.values(data);
+    },
+      error => {
+        console.log(error);
+      });
+  }
   createRdv(event) {
     event.preventDefault();
     console.log(this.names, this.classes);
