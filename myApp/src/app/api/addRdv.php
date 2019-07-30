@@ -16,7 +16,7 @@ if (isset($_POST["name"], $_POST["lieu"])) {
         $adresseList = $getAdresse->fetchAll();
         $adresse = $adresseList[0]['adresse'];
     $cours = "Individuel RDV";
-    $theme = "n/a";
+    $theme = "";
     $time = $_POST['time'];
         if ($time < 12) {
             $debut_am = $time;
