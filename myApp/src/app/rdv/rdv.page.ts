@@ -3,7 +3,6 @@ import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-rdv',
@@ -17,7 +16,7 @@ export class RdvPage implements OnInit {
   authState$: Observable<boolean>;
   value: any;
 
-  constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute, private changeRef: ChangeDetectorRef) {
+  constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.classes = this.router.getCurrentNavigation().extras.state.classes[0];
@@ -56,15 +55,40 @@ export class RdvPage implements OnInit {
         console.log(error);
       });
   }
+
   createRdv(event) {
     event.preventDefault();
-    console.log(this.names, this.classes);
+    const target = event.target;
+    const classe = target.querySelector('#classe').value;
+    const name = target.querySelector('#name').value;
+    const date = target.querySelector('#date').value;
+    const time = target.querySelector('#time').value;
+    const lieu = target.querySelector('#lieu').value;
+    const url = window.location.href;
+    const id = url.substring(url.lastIndexOf('/') + 1);
+    
+    this.addRdv(classe, name, date, time, lieu, id);
+    console.log(id, classe, name, date, time, lieu);
+  }
+
+  addRdv(classe, name, date, time, lieu, id) {
+    this.http.post('http://localhost/Attendance App/myApp/src/app/api/addRdv.php?id=' + id, {
+      classe,
+      name,
+      date,
+      time,
+      lieu
+    })  
+    .subscribe(data => {
+      this.names = Object.values(data);
+      this.router.navigate(['/home/', id]);
+    },
+      error => {
+        console.log(error);
+      });
   }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.changeRef.detectChanges();
-    }, 2000)
   }
 
   backPage(event) {

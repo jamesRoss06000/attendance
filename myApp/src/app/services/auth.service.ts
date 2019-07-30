@@ -102,6 +102,25 @@ export class AuthService {
       });
   }
 
+  // addRdv(classe, name, date, time, lieu, id) {
+  //   this.http.post('http://localhost/Attendance App/myApp/src/app/api/addRdv.php?id=' + id, {
+  //     classe,
+  //     name,
+  //     date,
+  //     time,
+  //     lieu
+  //   });
+  //   console.log(classe,
+  //     name,
+  //     date,
+  //     time,
+  //     lieu);
+  //   this.router.navigate(['/home/', id]);
+  //   error => {
+  //     console.log(error);
+  //   };
+  // }
+  
   getStudentCours(date, id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentCours.php?id=' + id, {
       date,

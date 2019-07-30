@@ -16,7 +16,7 @@
     <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
     <h2 class="ios title-ios hydrated">Remplissez les champs ci-dessous et confirmez</h2>
 
-    <form (submit)="createRdv($event, $classes)">
+    <form (submit)="createRdv($event)">
       <ion-list ng-app="myApp">
         <ion-select type="text" id="classe" name="classe" (ionChange)="onSelectChange($event)"
           placeholder="Selectionnez la classe" class="inputBox" #classe>
