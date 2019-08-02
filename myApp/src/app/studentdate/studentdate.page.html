@@ -11,13 +11,35 @@
     <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
     <br>
     <br>
-    <form (submit)="enterDate($event)">
-      <ion-item id="dateInput">
-        <ion-datetime display-format="YYYY MMM DD" min="2018" max="2050" id="date" #date placeholder="Sélectionnez la date ici">
-        </ion-datetime>
-      </ion-item>
-      <br>
-      <input type="submit" class="dateBtn" value="Submit">
+    <ion-item>
+      <ion-toolbar color="primary">
+        <ion-title>
+          {{ viewTitle }}
+        </ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="today()">Today</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-item>
+
+    <form>
+      <ion-row>
+        <!-- Move back one screen of the slides -->
+        <ion-col size="6" text-left>
+          <ion-button fill="clear" (click)="back()">
+            <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <!-- Move forward one screen of the slides -->
+        <ion-col size="6" text-right>
+          <ion-button fill="clear" (click)="next()">
+            <ion-icon name="arrow-forward" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <calendar [eventSource]="eventSource" [calendarMode]="calendar.mode" [currentDate]="calendar.currentDate"
+        (onEventSelected)="onEventSelected($event)" (onTitleChanged)="onViewTitleChanged($event)" startHour="6"
+        endHour="20" step="30" startingDayWeek="1"></calendar>
     </form>
     <br>
     <ion-button class="logout" color="danger" (click)="logout()">

@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPipe } from './login.pipe';
 
+import { CalendarModule } from 'ion2-calendar';
+
 @NgModule({
   declarations: [AppComponent, LoginPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CalendarModule],
   providers: [
     StatusBar,
     SplashScreen,

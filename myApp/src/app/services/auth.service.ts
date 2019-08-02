@@ -15,19 +15,44 @@ export class AuthService {
       email,
       password,
     }).subscribe(data => {
-      console.log(Object.values(data));
       const user = Object.values(data);
       const id = user[0];
       if (user[5] == 'intervenant') {
         this.router.navigate(['/home/', id]);
-      }
-      if (user[5] == 'etudiant') {
-        this.router.navigate(['/studentdate/', id]);
       };
-    },
+      if (user[5] == 'etudiant') {
+        return this.http.post('http://localhost/Attendance App/myApp/src/app/api/calendarStudent.php', {
+          id
+        }).subscribe(data => {
+          let planningData = Object.values(data);
+          let navExtras: NavigationExtras = {
+            state: {
+              planning: planningData
+            }
+          }
+          this.router.navigate(['/studentdate/', id], navExtras);
+        });
+      }
       error => {
         console.log(error);
-      });
+      };
+    });
+  }
+
+  getCalendarDates(id) {
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/calendarTeacher.php', {
+      id
+    }).subscribe(data => {
+      console.log(Object.values(data));
+      let planningData = Object.values(data);
+      const id = planningData[0].intervenant_id;
+      let navExtras: NavigationExtras = {
+        state: {
+          planning: planningData
+        }
+      }
+      this.router.navigate(['/teacherdate/', id], navExtras);
+    });
   }
 
   getCoursList(date, idIntervenant) {
@@ -53,27 +78,22 @@ export class AuthService {
       });
   }
 
-  getStudentList(idTeacher, date, time, cours, classe, id_planning) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentNames.php?id=' + idTeacher, {
+  getStudentList(id, date, id_planning) {
+    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentNames.php?id=' + id, {
       date,
-      time,
-      cours,
-      classe,
+      id,
       id_planning
     }).subscribe(data => {
       console.log(Object.values(data));
       let studentData = Object.values(data);
+      const url = window.location.href;
+      const id = url.substring(url.lastIndexOf('/') + 1);
       let navExtras: NavigationExtras = {
         state: {
-          students: studentData,
-          date,
-          time,
-          cours,
-          classe,
-          id_planning
+          students: studentData
         }
       }
-      this.router.navigate(['/list-students/', idTeacher], navExtras);
+      this.router.navigate(['/list-students/', id], navExtras);
     },
       error => {
         console.log(error);
@@ -102,25 +122,6 @@ export class AuthService {
       });
   }
 
-  // addRdv(classe, name, date, time, lieu, id) {
-  //   this.http.post('http://localhost/Attendance App/myApp/src/app/api/addRdv.php?id=' + id, {
-  //     classe,
-  //     name,
-  //     date,
-  //     time,
-  //     lieu
-  //   });
-  //   console.log(classe,
-  //     name,
-  //     date,
-  //     time,
-  //     lieu);
-  //   this.router.navigate(['/home/', id]);
-  //   error => {
-  //     console.log(error);
-  //   };
-  // }
-  
   getStudentCours(date, id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentCours.php?id=' + id, {
       date,

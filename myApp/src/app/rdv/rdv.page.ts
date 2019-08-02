@@ -66,7 +66,6 @@ export class RdvPage implements OnInit {
     const lieu = target.querySelector('#lieu').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    
     this.addRdv(classe, name, date, time, lieu, id);
     console.log(id, classe, name, date, time, lieu);
   }
@@ -78,14 +77,14 @@ export class RdvPage implements OnInit {
       date,
       time,
       lieu
-    })  
-    .subscribe(data => {
-      this.names = Object.values(data);
-      this.router.navigate(['/home/', id]);
-    },
-      error => {
-        console.log(error);
-      });
+    })
+      .subscribe(data => {
+        this.names = Object.values(data);
+        this.router.navigate(['/home/', id]);
+      },
+        error => {
+          console.log(error);
+        });
   }
 
   ngOnInit() {
