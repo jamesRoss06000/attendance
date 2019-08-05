@@ -6,7 +6,7 @@ $result = $conn->prepare($sql);
 $request = $result->execute();
 
 echo "<table border='1' id='myTable'>";
-echo "<thead><tr><th>Id</th><th>Classe</th><th>Etudiant<th>Justifié</th><th>Justificatif</th><th>Cours</th><th>Supprimez une ligne</th><th>Modifiez une ligne</th></tr></thead>\n";
+echo "<thead><tr><th>Id</th><th>Date</th><th>Cours</th><th>Classe</th><th>Etudiant</th><th>Etudiant_Id</th><th>Justifié</th><th>Justificatif</th><th>Supprimez une ligne</th><th>Modifiez une ligne</th></tr></thead>\n";
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
     foreach ($row as $key => $value) {

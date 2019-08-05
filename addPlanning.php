@@ -38,7 +38,7 @@ require_once("addPlanningTreatment.php");
 </head>
 
 <body>
-<?php
+    <?php
     // If any errors, show them using Bootstrap 
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
@@ -72,30 +72,10 @@ require_once("addPlanningTreatment.php");
                         <input name="date" type="date" class="form-control" id="date">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="time" type="time" class="form-control" id="time">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <select name="duration" id="duration" class="form-control">
-                            <option value="">Sélectionnez le duration</option>
-                            <option value="0h30">0h30</option>
-                            <option value="1h00">1h00</option>
-                            <option value="1h30">1h30</option>
-                            <option value="2h00">2h00</option>
-                            <option value="2h30">2h30</option>
-                            <option value="3h00">3h00</option>
-                            <option value="3h30">3h30</option>
-                            <option value="4h00">4h00</option>
-                            <option value="4h30">4h30</option>
-                            <option value="5h00">5h00</option>
-                            <option value="5h30">5h30</option>
-                            <option value="6h00">6h00</option>
-                            <option value="6h30">6h30</option>
-                            <option value="7h00">7h00</option>
-                            <option value="7h30">7h30</option>
-                            <option value="8h00">8h00</option>
-                            <option value="Demi jour">Demi jour</option>
-                            <option value="1 jour">1 jour</option>
-                        </select>
+                        Debut AM<input name="debut_am" type="time" class="form-control" id="debut_am">
+                        Fin AM<input name="fin_am" type="time" class="form-control" id="fin_am">
+                        Debut PM<input name="debut_pm" type="time" class="form-control" id="debut_pm">
+                        Fin PM<input name="fin_pm" type="time" class="form-control" id="fin_pm">
                     </div>
                     <div class="form-group col-md-12">
                         <select name="lieux" id="lieux" class="form-control">
@@ -109,26 +89,10 @@ require_once("addPlanningTreatment.php");
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <select name="cours" id="cours" class="form-control">
-                            <option value="">Sélectionnez le cours</option>
-                            <option value="Suivi individuel">Suivi individuel</option>
-                            <option value="Projet emergence">Accomp. collectif au projet emergence</option>
-                            <option value="Outils Numeriques">Workshop support et outils numériques</option>
-                            <option value="Découverte des metiers">Atelier découverte des métiers en CFA</option>
-                            <option value="Projet ancrage">Accomp. collectif au projet ancrage</option>
-                            <option value="CFA">Semaine en CFA</option>
-                            <option value="Posture Entreprise">Workshop Posture et Entreprise</option>
-                            <option value="Semaine Entreprise">Semaine en entreprise</option>
-                            <option value="Projet Entreprise">Accomp. collectif au projet et entreprise</option>
-                            <option value="Créativité et autonomie">Workshop créativité, coopération et autonomie</option>
-                            <option value="Reseaux sociaux">Workshop réseaux sociaux et identité numérique</option>
-                            <option value="Entretiens de sécurisation">Entretiens de sécurisation</option>
-                            <option value="Workshop Creativite">Workshop Creativite</option>
-                            <option value="Workshop Numerique">Workshop Numerique</option>
-                            <option value="Workshop Mobilite">Workshop Mobilite</option>
-                            <option value="Atelier Projet">Atelier Projet</option>
-                            <option value="Rencontres Metiers">Rencontre Metiers</option>
-                        </select>
+                        <input type="text" name="cours" id="cours" class="form-control" placeholder="Cours">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="text" name="theme" id="theme" class="form-control" placeholder="Theme du cours">
                     </div>
                     <div class="form-group col-md-12">
                         <select name="intervenant" id="intervenant" class="form-control">

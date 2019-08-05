@@ -108,6 +108,9 @@ require_once("addEtudiantToCoursTreatment.php");
                         </select>
                     </div>
                     <div class="form-group col-md-12">
+                        <input type="text" name="theme" id="theme" class="form-control" placeholder="Theme du cours">
+                    </div>
+                    <div class="form-group col-md-12">
                         <select name="lieux" id="lieux" class="form-control">
                             <option value="">Sélectionnez le campus</option>
                             <?php
@@ -119,16 +122,13 @@ require_once("addEtudiantToCoursTreatment.php");
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <input type="text" name="adresse" id="adresse" class="form-control" placeholder="Adresse de rdv">
-                    </div>
-                    <div class="form-group col-md-12">
                         <input name="date" type="date" class="form-control" id="date">
                     </div>
                     <div class="form-group col-md-12">
                         Debut AM<input name="debut_am" type="time" class="form-control" id="debut_am">
                         Fin AM<input name="fin_am" type="time" class="form-control" id="fin_am">
                         Debut PM<input name="debut_pm" type="time" class="form-control" id="debut_pm">
-                        Fin AM<input name="fin_pm" type="time" class="form-control" id="fin_pm">
+                        Fin PM<input name="fin_pm" type="time" class="form-control" id="fin_pm">
                     </div>
                     <br>
                     <button type="submit" class="btn btn-success btn-width">Ajouter information</button>

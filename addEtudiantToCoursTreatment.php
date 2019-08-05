@@ -66,34 +66,33 @@ function checkError($post)
 if (isset($_POST["date"], $_POST["classe"], $_POST["etudiant"], $_POST["lieux"], $_POST["cours"], $_POST["intervenant"])) {
     $errors = checkError($_POST);
     if (empty($errors)) {
-        $classe = filter_input(INPUT_POST, "classe");
-        $etudiant = filter_input(INPUT_POST, "etudiant");
-        $intervenant_name = filter_input(INPUT_POST, "intervenant");
-        $cours = filter_input(INPUT_POST, "cours");
-        $lieux = filter_input(INPUT_POST, "lieux");
-        $adresse = filter_input(INPUT_POST, "adresse");
         $date = filter_input(INPUT_POST, "date");
+        $lieux = filter_input(INPUT_POST, "lieux");
+            $getAdresse = $conn->prepare("SELECT * FROM lieux WHERE campus = :lieux");
+            $getAdresse->execute([':lieux' => $lieux]);
+            $adresseList = $getAdresse->fetchAll();
+            $adresse = $adresseList[0]['adresse'];
+        $cours = filter_input(INPUT_POST, "cours");
+        $theme = filter_input(INPUT_POST, "theme");
         $debut_am = filter_input(INPUT_POST, "debut_am");
         $fin_am = filter_input(INPUT_POST, "fin_am");
         $debut_pm = filter_input(INPUT_POST, "debut_pm");
         $fin_pm = filter_input(INPUT_POST, "fin_pm");
-        $present = "non";
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
+        $intervenant_name = filter_input(INPUT_POST, "intervenant");
+            $getId = $conn->prepare("SELECT id FROM users WHERE nom = :intervenant_name");
+            $getId->execute([':intervenant_name' => $intervenant_name]);
+            $details = $getId->fetchAll();
+            $intervenant_id = $details[0]['id'];
+        $etudiant = filter_input(INPUT_POST, "etudiant");
 
-        $getId = $conn->prepare("SELECT id FROM users WHERE nom = :intervenant_name");
-        $getId->execute([':intervenant_name' => $intervenant_name]);
-        $details = $getId->fetchAll();
-
-        $intervenant_id = $details[0]['id'];
-        var_dump($id);
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
         } else {
 
-            $sql = $conn->prepare("INSERT INTO `cours`(`id`, `date`,  `lieux`, `adresse`,  `cours`, `debut_am`, `fin_am`, `debut_pm`, `fin_pm`, `intervenant_name`, `intervenant_id`, `etudiant`, `classe`, `present`) VALUES (NULL, :date, :lieux, :adresse, :cours, :debut_am, :fin_am, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :etudiant, :classe, :present)");
-            $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse,  ':cours' => $cours, ':debut_am' => $debut_am, ':fin_am' => $fin_am, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, ':intervenant_id' => $intervenant_id, ':etudiant' => $etudiant, ':classe' => $classe, ':present' => $present]);
+            $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`,  `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`, `debut_pm`, `fin_pm`, `intervenant_name`, `intervenant_id`, `classe`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :debut_am, :fin_am, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :etudiant)");
+            $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':debut_am' => $debut_am, ':fin_am' => $fin_am, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, ':intervenant_id' => $intervenant_id, ':etudiant' => $etudiant]);
             header('Location: addEtudiantToCours.php?id=Database updated');
         }
         // mysqli_close($conn);

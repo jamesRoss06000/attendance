@@ -54,6 +54,9 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                     <div class="form-group col-md-12">
                         <input name="etudiant" type="text" class="form-control" id="etudiant" placeholder="etudiant" value="<?php echo $result["etudiant"]; ?>">
                     </div>
+                    <div class="form-group col-md-12">
+                        <input name="cours" type="text" class="form-control" id="cours" placeholder="cours" value="<?php echo $result["cours"]; ?>">
+                    </div>
                     <div class="form-group col-md-12" id="radioDiv">
                         <label class="radio-inline">
                             <input type="radio" id="nonBtn" name="justifie" value="non" checked>Non

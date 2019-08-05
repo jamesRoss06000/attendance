@@ -65,8 +65,7 @@ if (isset($_POST["classe"], $_POST["etudiant"], $_POST["justified"], $_POST["jus
         $justified = filter_input(INPUT_POST, "justified");
         $justificatif = filter_input(INPUT_POST, "justificatif");
         $planning = filter_input(INPUT_POST, "id_planning");
-        // echo ("$classe, $etudiant, $justified, $justificatif, $planning");
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
+
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;

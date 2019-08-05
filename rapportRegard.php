@@ -60,7 +60,7 @@ require_once("connection.php");
             $classe = $_POST['classe'];
 
             $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
-            $sql = ("SELECT `date`, `time`, `lieux`, `cours` FROM `cours` WHERE `etudiant` = :etudiant AND `classe` = :classe AND `present` = 'non' AND `date` <= CURDATE()");
+            $sql = ("SELECT `date`, `cours`, `justified`, `justificatif` FROM `absences` WHERE `etudiant` = :etudiant AND `classe` = :classe");
             $result = $conn->prepare($sql);
             $result->execute([":etudiant" => $etudiant, ":classe" => $classe]);
             echo "<div id='formDiv' class='modal-dialog'>";
@@ -69,7 +69,7 @@ require_once("connection.php");
             echo "<div action='rapportRegard.php' method='post' class='modal-content'>";
             echo "<div class='form-row'>";
             echo "<table border='1' id='myTable'>";
-            echo "<thead><tr><th>date</th><th>heure</th><th>lieux<th>cours</th></tr></thead>\n";
+            echo "<thead><tr><th>date</th><th>cours</th><th>justifié<th>justificatif</th></tr></thead>\n";
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 foreach ($row as $key => $value) {

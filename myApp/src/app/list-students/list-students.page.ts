@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class ListStudentsPage implements OnInit {
   planning: any;
+  planning_id: any;
   students: any;
   platform: any;
   authState$: Observable<boolean>;
@@ -19,9 +20,10 @@ export class ListStudentsPage implements OnInit {
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.students = this.router.getCurrentNavigation().extras.state.students;
+        this.students = this.router.getCurrentNavigation().extras.state.students[0];
+        this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
-      console.log("students", this.students);
+      console.log("students", this.students, this.planning_id);
     });
   }
 
@@ -39,18 +41,17 @@ export class ListStudentsPage implements OnInit {
     for (let i = 0; i < students.length; i++) {
       if (!students[i].value || students[i].value == "undefined") {
         students[i].value = false;
-        const date = students[i][1];
-        const cours = students[i][0];
+        let planning_id = this.planning_id;
         const classe = students[i].classe;
         const etudiant_nom = students[i].nom;
         const etudiant_id = students[i].id;
         const url = window.location.href;
         const id = url.substring(url.lastIndexOf('/') + 1);
-        this.Auth.updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id);
-        this.router.navigate(['cours/', id]);
+        this.Auth.updateAbsenceDb(planning_id, classe, id, etudiant_nom, etudiant_id);
+        this.router.navigate(['teacherdate/', id]);
+        console.log(planning_id);
       }
       // console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
-      // console.log(students[i].id + " => " + students[i].value);
     }
     alert("Mis à jour effectué");
   }
@@ -60,7 +61,7 @@ export class ListStudentsPage implements OnInit {
     const date = this.students[0].date;
     const url = window.location.href;
     const id_intervenant = url.substring(url.lastIndexOf('/') + 1);
-    this.router.navigate(['/cours/', id_intervenant]);
+    this.router.navigate(['/teacherdate/', id_intervenant]);
     this.Auth.getCoursList(date, id_intervenant);
 
     console.log(this.students);

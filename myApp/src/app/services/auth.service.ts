@@ -100,10 +100,9 @@ export class AuthService {
       });
   }
 
-  updateAbsenceDb(date, cours, classe, id, etudiant_nom, etudiant_id) {
+  updateAbsenceDb(planning_id, classe, id, etudiant_nom, etudiant_id) {
     return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAbsenceDb.php?id=' + id, {
-      date,
-      cours,
+      planning_id,
       classe,
       id,
       etudiant_nom,
