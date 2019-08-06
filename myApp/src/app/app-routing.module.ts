@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home/:id', loadChildren: './home/home.module#HomePageModule' },
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
-  { path: 'cours/:id', loadChildren: './cours/cours.module#CoursPageModule' },
   { path: 'list-students/:id', loadChildren: './list-students/list-students.module#ListStudentsPageModule' },
   { path: 'agenda/:id', loadChildren: './agenda/agenda.module#AgendaPageModule' },
   { path: 'studentdate/:id', loadChildren: './studentdate/studentdate.module#StudentdatePageModule' },
