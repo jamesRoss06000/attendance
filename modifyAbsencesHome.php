@@ -23,7 +23,7 @@ require_once("connection.php");
 
 <body>
     <?php include("modifyAbsenceTable.php") ?>
-    <a href="http://localhost/Attendance%20App/mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
+    <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
     <script>
         var myTable = $("body > table");
         myTable.addClass("table table-striped");

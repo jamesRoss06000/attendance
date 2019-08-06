@@ -80,7 +80,7 @@ require_once("connection.php");
             echo "</table>";
             echo "<div class='form-group col-md-12'>";
             echo "<button type='submit' class='btn btn-success btn-width'>Créer un PDF</button>";
-            echo "<a href='http://localhost/Attendance%20App/mainMenu.php' class='btn btn-danger btn-width'>Annule</a>";
+            echo "<a href='mainMenu.php' class='btn btn-danger btn-width'>Annule</a>";
             echo "</div";
             echo "</div";
             echo "</div";

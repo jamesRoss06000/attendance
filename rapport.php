@@ -83,7 +83,7 @@ require_once("rapportRegard.php");
                     </div>
                     <br>
                     <button type="submit" class="btn btn-success btn-width">Créer un rapport d'absence</button>
-                    <a href="http://localhost/Attendance%20App/mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
+                    <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
                 </div>
             </form>
         </div>

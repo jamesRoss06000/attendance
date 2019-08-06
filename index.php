@@ -1,5 +1,5 @@
 <?php
-require_once("adminTreatment.php");
+require_once("indexTreatment.php");
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ require_once("adminTreatment.php");
             <div class="modal-header">
                 <h3 class="modal-title">Système de gestion des présences - Login</h3>
             </div>
-            <form action="admin.php" method="post" class="modal-content">
+            <form action="index.php" method="post" class="modal-content">
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <input name="email" type="email" class="form-control" id="email" placeholder="Email">
