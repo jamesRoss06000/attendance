@@ -33,7 +33,6 @@ if (isset($_POST["justificatif"])) {
     $errors = checkError($_POST);
     if (empty($errors)) {
         $justificatif = filter_input(INPUT_POST, "justificatif");
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;

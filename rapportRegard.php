@@ -22,7 +22,6 @@ require_once("connection.php");
     <?php
         if (isset($_POST["classe"], $_POST["etudiant"])) {
             $id =  $_POST['etudiant'];
-            $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
             $sql = ("SELECT `id`, `nom`, `email`, `classe` FROM `users` WHERE `nom` = :etudiant");
             $result = $conn->prepare($sql);
             $result->bindParam(":etudiant", $id);
@@ -34,7 +33,6 @@ require_once("connection.php");
             </div>";
             echo "<div action='rapportRegard.php' method='post' class='modal-content'>";
             echo "<div class='form-row'>";
-
             echo "<table border='1' id='myTable'>";
             echo "<thead><tr><th>id</th><th>nom</th><th>email</th><th>classe</th></tr></thead>\n";
             while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -58,8 +56,6 @@ require_once("connection.php");
         if (isset($_POST["classe"], $_POST["etudiant"])) {
             $etudiant =  $_POST['etudiant'];
             $classe = $_POST['classe'];
-
-            $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
             $sql = ("SELECT `date`, `cours`, `justified`, `justificatif` FROM `absences` WHERE `etudiant` = :etudiant AND `classe` = :classe");
             $result = $conn->prepare($sql);
             $result->execute([":etudiant" => $etudiant, ":classe" => $classe]);

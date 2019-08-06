@@ -55,7 +55,7 @@ if (isset($_POST["campus"], $_POST["adresse"], $_POST["telephone"], $_POST["emai
         $adresse = filter_input(INPUT_POST, "adresse");
         $telephone = filter_input(INPUT_POST, "telephone");
         $email = filter_input(INPUT_POST, "email");
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
+
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;

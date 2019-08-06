@@ -66,7 +66,7 @@ if (isset($_POST["name"], $_POST["email"], $_POST["password"], $_POST["role"])) 
         $password = filter_input(INPUT_POST, "password");
         $role = filter_input(INPUT_POST, "role");
         $classe = filter_input(INPUT_POST, "classe");
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
+
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;

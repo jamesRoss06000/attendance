@@ -76,7 +76,6 @@ if (isset($_POST["classe"], $_POST["debut"], $_POST["fin"])) {
         $classe = filter_input(INPUT_POST, "classe");
         $debut = filter_input(INPUT_POST, "debut");
         $fin = filter_input(INPUT_POST, "fin");
-        $conn = new PDO('mysql:host=localhost;dbname=attendance', $dbUserName, $dbPassword);
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
