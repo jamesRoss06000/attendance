@@ -11,11 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginPipe } from './login.pipe';
 
 import { CalendarModule } from 'ion2-calendar';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [AppComponent, LoginPipe],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CalendarModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, CalendarModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })],
   providers: [
     StatusBar,
     SplashScreen,

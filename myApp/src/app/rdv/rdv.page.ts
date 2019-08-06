@@ -96,4 +96,8 @@ export class RdvPage implements OnInit {
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/home/', id]);
   }
+
+  logout() {
+    this.router.navigate(['/login/']);
+  }
 }

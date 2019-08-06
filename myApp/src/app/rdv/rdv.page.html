@@ -18,7 +18,7 @@
 
     <form (submit)="createRdv($event)">
       <ion-list ng-app="myApp">
-        <ion-select type="text" id="classe" name="classe" (ionChange)="onSelectChange($event)"
+        <ion-select type="text" id="classe" name="classe" (ionChange)="onSelectChange($event, i)"
           placeholder="Selectionnez la classe" class="inputBox" #classe>
           <ion-select-option *ngFor="let classe of classes; let i = index" [value]="">{{ classe.classe }}
           </ion-select-option>
