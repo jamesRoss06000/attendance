@@ -28,4 +28,4 @@ try {
 
 
 // Below is for the small requests for select option boxes
-$connect = new mysqli('localhost', 'root', '', 'attendance');
+$connect = new mysqli('remotemysql.com', 'TnuAWjwlHS', 'SaXj67gCa7', 'TnuAWjwlHS');
