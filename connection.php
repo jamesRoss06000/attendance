@@ -1,9 +1,9 @@
 <?php
 // See comments below for explanation on use of PDO connection - 
-$dbServerName = "localhost";
-$dbUserName = "root";
-$dbPassword = "";
-$dbName = "attendance";
+$dbServerName = "remotemysql.com";
+$dbUserName = "TnuAWjwlHS";
+$dbPassword = "SaXj67gCa7";
+$dbName = "TnuAWjwlHS";
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$dbServerName;dbname=$dbName;charset=$charset";
