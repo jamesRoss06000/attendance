@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient, public navCtrl: NavController, private router: Router) { }
 
   getUserDetails(email, password) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/auth.php', {
+    return this.http.post('../Attendance App/myApp/src/app/api/auth.php', {
       email,
       password,
     }).subscribe(data => {
@@ -21,7 +21,7 @@ export class AuthService {
         this.router.navigate(['/home/', id]);
       };
       if (user[5] == 'etudiant') {
-        return this.http.post('http://localhost/Attendance App/myApp/src/app/api/calendarStudent.php', {
+        return this.http.post('../Attendance App/myApp/src/app/api/calendarStudent.php', {
           id
         }).subscribe(data => {
           let planningData = Object.values(data);
@@ -40,7 +40,7 @@ export class AuthService {
   }
 
   getCalendarDates(id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/calendarTeacher.php', {
+    return this.http.post('../Attendance App/myApp/src/app/api/calendarTeacher.php', {
       id
     }).subscribe(data => {
       console.log(Object.values(data));
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   getCoursList(date, idIntervenant) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getCours.php?id=' + idIntervenant, {
+    return this.http.post('../Attendance App/myApp/src/app/api/getCours.php?id=' + idIntervenant, {
       date,
     }).subscribe(data => {
       console.log(Object.values(data));
@@ -79,7 +79,7 @@ export class AuthService {
   }
 
   getStudentList(id, date, id_planning) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentNames.php?id=' + id, {
+    return this.http.post('../Attendance App/myApp/src/app/api/getStudentNames.php?id=' + id, {
       date,
       id,
       id_planning
@@ -101,7 +101,7 @@ export class AuthService {
   }
 
   updateAbsenceDb(planning_id, classe, id, etudiant_nom, etudiant_id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/updateAbsenceDb.php?id=' + id, {
+    return this.http.post('../Attendance App/myApp/src/app/api/updateAbsenceDb.php?id=' + id, {
       planning_id,
       classe,
       id,
@@ -122,7 +122,7 @@ export class AuthService {
   }
 
   getStudentCours(date, id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getStudentCours.php?id=' + id, {
+    return this.http.post('../Attendance App/myApp/src/app/api/getStudentCours.php?id=' + id, {
       date,
     }).subscribe(data => {
       console.log(Object.values(data));
@@ -147,7 +147,7 @@ export class AuthService {
   }
 
   getRdvInfo(id) {
-    return this.http.post('http://localhost/Attendance App/myApp/src/app/api/getRdvInfo.php?id=' + id, {
+    return this.http.post('../Attendance App/myApp/src/app/api/getRdvInfo.php?id=' + id, {
       id
     }).subscribe(data => {
       console.log(Object.values(data));
