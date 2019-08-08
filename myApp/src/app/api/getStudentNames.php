@@ -21,7 +21,7 @@ if (isset($_POST["date"])) {
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE (`classe` OR `nom`) = :classe");
     $stmt->execute([':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {
