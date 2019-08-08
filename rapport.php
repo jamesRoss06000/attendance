@@ -45,7 +45,7 @@ require_once("rapportRegard.php");
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <?php // $errors is an array we turn to a string using the IMPLODE fonction 
-            echo implode(" ", $errors);
+            echo implode(" ", $error);
             ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>

@@ -10,8 +10,9 @@ $_POST = json_decode($rest_json, true);
 
 if (isset($_POST["date"])) {
 
-    $origDate = date("Y-m-d", strtotime($_POST['date']));
-    $date = $origDate;
+    // $origDate = date("Y-m-d", strtotime($_POST['date']));
+
+    $date = $_POST['date'];
     $id = $_GET['id'];
     $id_planning = $_POST['id_planning'];
 
