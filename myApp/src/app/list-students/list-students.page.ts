@@ -23,7 +23,7 @@ export class ListStudentsPage implements OnInit {
         this.students = this.router.getCurrentNavigation().extras.state.students[0];
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
-      console.log("students", this.students, this.planning_id);
+      // console.log("students", this.students, this.planning_id);
     });
   }
 
@@ -49,7 +49,7 @@ export class ListStudentsPage implements OnInit {
         const id = url.substring(url.lastIndexOf('/') + 1);
         this.Auth.updateAbsenceDb(planning_id, classe, id, etudiant_nom, etudiant_id);
         this.router.navigate(['teacherdate/', id]);
-        console.log(planning_id);
+        // console.log(planning_id);
       }
       // console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
     }
@@ -63,8 +63,7 @@ export class ListStudentsPage implements OnInit {
     const id_intervenant = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/teacherdate/', id_intervenant]);
     this.Auth.getCoursList(date, id_intervenant);
-
-    console.log(this.students);
+    // console.log(this.students);
   }
 
   logout() {

@@ -46,7 +46,7 @@ export class RdvPage implements OnInit {
   }
 
   rdvListStudents(chosenClasse, id) {
-    return this.http.post('http://192.168.43.223/Attendance App/myApp/src/app/api/getRdvNameList.php?id=' + id, {
+    return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/getRdvNameList.php?id=' + id, {
       chosenClasse
     }).subscribe(data => {
       this.names = Object.values(data);
@@ -71,7 +71,7 @@ export class RdvPage implements OnInit {
   }
 
   addRdv(classe, name, date, time, lieu, id) {
-    this.http.post('http://192.168.43.223/Attendance App/myApp/src/app/api/addRdv.php?id=' + id, {
+    this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/addRdv.php?id=' + id, {
       classe,
       name,
       date,
