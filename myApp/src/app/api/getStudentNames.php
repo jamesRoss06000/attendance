@@ -28,7 +28,7 @@ if (isset($_POST["date"])) {
         $output = $stmt->fetchAll();
         // $newOutput = array();
         // array_push($newOutput, $output, $id_planning);
-        echo json_encode($classe);
+        echo json_encode($output);
     } else {
         $errors = "No data found for this date!";
         echo json_encode($errors);
