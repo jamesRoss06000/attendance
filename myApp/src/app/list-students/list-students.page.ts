@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListStudentsPage implements OnInit {
   planning: any;
   planning_id: any;
+  outputData: any;
   students: any;
   platform: any;
   authState$: Observable<boolean>;
@@ -21,6 +22,11 @@ export class ListStudentsPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.students = this.router.getCurrentNavigation().extras.state.students[0];
+        var outputData ;
+        Object.keys(this.students).forEach(function(key){
+          outputData.push(this.students[key]);
+        });
+        console.log(outputData);
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
       // console.log("students", this.students, this.planning_id);

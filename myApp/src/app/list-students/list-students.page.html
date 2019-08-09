@@ -20,7 +20,7 @@
       <br>
       <p>Cochez la case des élèves en classe</p>
       <ion-list>
-        <ion-item *ngFor="let student of students; let i = index">
+        <ion-item *ngFor="let student of outputData; let i = index">
           <ion-label>{{ students.nom }} </ion-label>
           <ion-toggle (ionChange)="onChange($event, i)">
           </ion-toggle>
