@@ -13,17 +13,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListStudentsPage implements OnInit {
   planning: any;
   planning_id: any;
-  students: any =[];
+  students: any;
   platform: any;
   authState$: Observable<boolean>;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.students = this.router.getCurrentNavigation().extras.state.students[0];
+        this.students = this.router.getCurrentNavigation().extras.state.students;
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
-      console.log("students", this.students, this.planning_id);
+      // console.log("students", this.students, this.planning_id);
     });
   }
 
