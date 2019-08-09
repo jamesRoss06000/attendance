@@ -15,22 +15,21 @@ if (isset($_POST["date"])) {
     $id = $_GET['id'];
     $id_planning = $_POST['id_planning'];
 
-    $getClasse = $conn->prepare("SELECT * FROM planning WHERE id_planning = :id_planning");
+    $getClasse = $conn->prepare("SELECT classe FROM planning WHERE id_planning = :id_planning");
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :classe");
     $stmt->execute([':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {
         $output = $stmt->fetchAll();
         // $newOutput = array();
-        var_dump($output);
         // array_push($newOutput, $output, $id_planning);
-        // echo json_encode($newOutput);
+        echo json_encode($classe);
     } else {
-        $errors = "No data found for this date";
+        $errors = "No data found for this date!";
         echo json_encode($errors);
     }
     // $conn->close();
