@@ -63,12 +63,11 @@ export class RdvPage implements OnInit {
     const name = target.querySelector('#name').value;
     const date = target.querySelector('#date').value;
     const time = target.querySelector('#time').value;
-    const timePlus = time + 1;
     const lieu = target.querySelector('#lieu').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    // this.addRdv(classe, name, date, time, lieu, id);
-    console.log(id, classe, name, date, time, lieu, timePlus);
+    this.addRdv(classe, name, date, time, lieu, id);
+    // console.log(id, classe, name, date, time, lieu);
   }
 
   addRdv(classe, name, date, time, lieu, id) {

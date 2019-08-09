@@ -25,8 +25,8 @@ if (isset($_POST["name"], $_POST["lieu"])) {
             $debut_am = "";
             $debut_pm = $time;
         }
-    $fin_am = "";
-    $fin_pm = "";
+    $fin_am = ".";
+    $fin_pm = ".";
     $intervenant_id = $_GET['id'];
         $getTeacher = $conn->prepare("SELECT * FROM users WHERE id = :intervenant_id");
         $getTeacher->execute([':intervenant_id' => $intervenant_id]);
