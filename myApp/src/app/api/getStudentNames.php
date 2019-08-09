@@ -21,8 +21,8 @@ if (isset($_POST["date"])) {
     $classe = $details[0]['classe'];
     // var_dump($classe);
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :classe");
-    $stmt->execute([':classe' => $classe]);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :nom");
+    $stmt->execute([':classe' => $classe, ':nom' => $classe]);
 
     if ($stmt->rowCount() > 0) {
         $output = $stmt->fetchAll();
@@ -34,4 +34,7 @@ if (isset($_POST["date"])) {
         echo json_encode($errors);
     }
     // $conn->close();
+}
+else{
+    echo "get";
 }
