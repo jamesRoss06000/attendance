@@ -20,7 +20,7 @@ export class ListStudentsPage implements OnInit {
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.students = this.router.getCurrentNavigation().extras.state.students;
+        this.students = this.router.getCurrentNavigation().extras.state.students[0];
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
       // console.log("students", this.students, this.planning_id);
