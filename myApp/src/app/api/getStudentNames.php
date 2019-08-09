@@ -1,7 +1,7 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Origin, Content-Type");
+// header("Access-Control-Allow-Origin: *");
+// header("Access-Control-Allow-Headers: Origin, Content-Type");
 
 // require_once("connection2.php");
 
