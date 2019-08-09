@@ -7,7 +7,7 @@ require_once("connection2.php");
 
 $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
-echo "test";
+echo "test 2";
 // if (isset($_POST["date"])) {
 
 //     $origDate = date("Y-m-d", strtotime($_POST['date']));
