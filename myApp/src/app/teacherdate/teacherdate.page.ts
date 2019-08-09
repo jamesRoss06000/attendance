@@ -115,7 +115,7 @@ export class TeacherdatePage {
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       // console.log(event, id_planning, date, id);
-      this.Auth.getStudentList(date, id, id_planning);
+      this.Auth.getStudentList(id, date, id_planning);
     }
   }
 
