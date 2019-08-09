@@ -84,16 +84,13 @@ export class AuthService {
       id,
       id_planning
     }).subscribe(data => {
-
-      let studentData = Object.values(data[0]);
-      let planningData = Object.values(data[1]);
-      console.log(studentData, planningData);
+      console.log(Object.values(data));
+      let studentData = Object.values(data);
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       let navExtras: NavigationExtras = {
         state: {
-          students: studentData,
-          plannings: planningData
+          students: studentData
         }
       }
       this.router.navigate(['/list-students/', id], navExtras);
