@@ -23,7 +23,7 @@ export class ListStudentsPage implements OnInit {
         this.students = this.router.getCurrentNavigation().extras.state.students[0];
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
       }
-      // console.log("students", this.students, this.planning_id);
+      console.log("students", this.students, this.planning_id);
     });
   }
 
@@ -62,7 +62,7 @@ export class ListStudentsPage implements OnInit {
     const url = window.location.href;
     const id_intervenant = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/teacherdate/', id_intervenant]);
-    this.Auth.getCoursList(date, id_intervenant);
+    // this.Auth.getCoursList(date, id_intervenant);
     // console.log(this.students);
   }
 
