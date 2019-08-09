@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListStudentsPage implements OnInit {
   planning: any;
   planning_id: any;
-  students: any;
+  students: any =[];
   platform: any;
   authState$: Observable<boolean>;
 
@@ -62,7 +62,7 @@ export class ListStudentsPage implements OnInit {
     const url = window.location.href;
     const id_intervenant = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/teacherdate/', id_intervenant]);
-    // this.Auth.getCoursList(date, id_intervenant);
+    this.Auth.getCoursList(date, id_intervenant);
     // console.log(this.students);
   }
 
