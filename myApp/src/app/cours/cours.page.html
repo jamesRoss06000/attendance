@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      <h2>Étudiants attendus</h2>
+      <h2>Cours du Jour</h2>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,16 +18,18 @@
       <img src="\assets\icon\demarretastory.jpg" alt="DemarreTaStory">
       <br>
       <br>
-      <p>Cochez la case des élèves en classe</p>
       <ion-list>
-        <ion-item *ngFor="let student of students; let i = index">
-          <ion-label>{{ student.nom }}</ion-label>
-          <ion-toggle (ionChange)="onChange($event, i)">
-          </ion-toggle>
-        </ion-item>
-        <ion-button (click)="signalAbsence($event, students)">
-          Confirmer
-        </ion-button>
+        <ion-card padding *ngFor="let cour of planning; let i = index" (click)="showClasses($event, i)">
+          <h2>{{ cour.cours }}</h2>
+          <h3>{{ cour.theme }}</h3>
+          <p>Lieu: {{ cour.lieux }},{{ cour.adresse }}</p>
+          <p>Debut AM: {{ cour.debut_am }}</p>
+          <p>Fin AM: {{ cour.fin_am }}</p>
+          <p>Debut PM: {{ cour.debut_pm }}</p>
+          <p>Fin PM: {{ cour.fin_pm }}</p>
+          <p>Date: {{ cour.date }}</p>
+          <p>Classe: {{ cour.classe }}</p>
+        </ion-card>
       </ion-list>
       <br>
       <ion-button class="logout" color="danger" (click)="logout()">

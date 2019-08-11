@@ -26,10 +26,11 @@ if (isset($_POST["date"])) {
     $stmt->execute([':classe' => $classe, ':nom' => $classe]);
 
     if ($stmt->rowCount() > 0) {
+        $output = array();
         $output = $stmt->fetchAll();
-        // $newOutput = array();
-        // array_push($newOutput, $output, $id_planning);
-        echo json_encode($output);
+        $newOutput = array();
+        array_push($newOutput, $output, $id_planning);
+        echo json_encode($newOutput);
     } else {
         $errors = "No data found for this date!";
         echo json_encode($errors);
