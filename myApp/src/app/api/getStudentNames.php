@@ -19,23 +19,23 @@ if (isset($_POST["date"])) {
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
-    echo $classe;
+    // echo $classe;
 
-    // $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` = :classe");
-    // $stmt->execute([':classe' => $classe]);
-
-    // if ($stmt->rowCount() > 0) {
-    //     $output = array();
-    //     $output = $stmt->fetchAll();
-    //     $newOutput = array();
-    //     array_push($newOutput, $output, $id_planning);
-    //     echo json_encode($newOutput);
-    // } else {
-    //     $errors = "No data found for this date!";
-    //     echo json_encode($classe);
-    // }
-    // $conn->close();
-// }
-// else{
-//     echo "get";
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` AND `classe` = :classe");
+    $stmt->execute([':classe' => $classe]);
+    
+    if ($stmt->rowCount() > 0) {
+        $output = array();
+        $output = $stmt->fetchAll();
+        $newOutput = array();
+        array_push($newOutput, $output, $id_planning);
+        echo json_encode($newOutput);
+    } else {
+        $errors = "No data found for this date!";
+        echo json_encode($classe);
+    }
+    $conn->close();
+}
+else{
+    echo "get";
 }
