@@ -68,7 +68,7 @@ export class RdvPage implements OnInit {
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.addRdv(classe, name, date, time, timeEnd, lieu, id);
-    // console.log(id, classe, name, date, time, lieu);
+    console.log(id, classe, name, date, time, lieu);
   }
 
   addRdv(classe, name, date, time, timeEnd, lieu, id) {
@@ -81,7 +81,7 @@ export class RdvPage implements OnInit {
       lieu
     })
       .subscribe(data => {
-        this.names = Object.values(data);
+        // this.names = Object.values(data);
         this.router.navigate(['/home/', id]);
       },
         error => {
