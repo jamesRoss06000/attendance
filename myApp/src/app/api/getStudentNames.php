@@ -22,7 +22,7 @@ if (isset($_POST["date"])) {
     $classe = $details[0]['classe'];
     // var_dump($classe);
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :nom");
+    $stmt = $conn->prepare("SELECT * FROM users WHERE (`classe` = :classe) OR (`nom` AND `classe` = :nom)");
     $stmt->execute([':classe' => $classe, ':nom' => $classe]);
 
     if ($stmt->rowCount() > 0) {
