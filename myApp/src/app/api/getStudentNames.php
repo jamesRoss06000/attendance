@@ -32,7 +32,7 @@ if (isset($_POST["date"])) {
         echo json_encode($newOutput);
     } else {
         $errors = "No data found for this date!";
-        echo json_encode($classe);
+        echo json_encode($errors);
     }
     $conn->close();
 }
