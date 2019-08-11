@@ -90,7 +90,7 @@ export class AuthService {
       const id = url.substring(url.lastIndexOf('/') + 1);
       let navExtras: NavigationExtras = {
         state: {
-          students: studentData
+          studentLists: studentData
         }
       }
       this.router.navigate(['/list-students/', id], navExtras);
