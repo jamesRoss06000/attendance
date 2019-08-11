@@ -7,6 +7,7 @@ require_once("connection2.php");
 
 $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
+//var_dump($_POST);
 
 if (isset($_POST["date"])) {
 
@@ -19,23 +20,23 @@ if (isset($_POST["date"])) {
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
-    // echo $classe;
-    if (isset($classe)) {
-        $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
-        $stmt->execute([':classe' => $classe]);
+    // var_dump($classe);
 
-        if ($stmt->rowCount() > 0) {
-            $output = array();
-            $output = $stmt->fetchAll();
-            $newOutput = array();
-            array_push($newOutput, $output, $id_planning);
-            echo json_encode($newOutput);
-        } else {
-            $errors = "No data found for this date!";
-            echo json_encode($errors);
-        }
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :nom");
+    $stmt->execute([':classe' => $classe, ':nom' => $classe]);
+
+    if ($stmt->rowCount() > 0) {
+        $output = array();
+        $output = $stmt->fetchAll();
+        $newOutput = array();
+        array_push($newOutput, $output, $id_planning);
+        echo json_encode($newOutput);
+    } else {
+        $errors = "No data found for this date!";
+        echo json_encode($errors);
     }
     // $conn->close();
-} else {
-    echo "get";
 }
+// else{
+//     echo "get";
+// }
