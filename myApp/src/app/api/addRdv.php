@@ -40,7 +40,7 @@ if (isset($_POST["name"], $_POST["lieu"])) {
         $success = "RDV added";
         echo json_encode($success);
     } else {
-        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`,`intervenant_name`, `intervenant_id`, `classe`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :name)");
+        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_pm`, `fin_pm`,`intervenant_name`, `intervenant_id`, `classe`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :name)");
         $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':name' => $name]);
         $success = "RDV added";
         echo json_encode($success);
