@@ -64,10 +64,11 @@ if (isset($_POST["classe"])) {
                     $intervenant_id = $details[0]['id'];
 
                     $classe = filter_input(INPUT_POST, "classe");
+                    $nom = "";
 
                     if (strlen($intervenant_name) > 1) {
-                        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`, `debut_pm`, `fin_pm`, `intervenant_name`, `intervenant_id`, `classe`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :debut_am, :fin_am, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :classe)");
-                        $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':debut_am' => $debut_am, ':fin_am' => $fin_am, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':classe' => $classe]);
+                        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`, `debut_pm`, `fin_pm`, `intervenant_name`, `intervenant_id`, `classe`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :debut_am, :fin_am, :debut_pm, :fin_pm, :intervenant_name, :intervenant_id, :classe, :nom)");
+                        $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':debut_am' => $debut_am, ':fin_am' => $fin_am, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':classe' => $classe, ':nom' => $nom]);
                     }
                 }
                 $row++;

@@ -20,7 +20,6 @@ if (isset($_POST["date"])) {
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
-    // var_dump($classe);
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :nom)");
     $stmt->execute([':classe' => $classe, ':nom' => $classe]);
