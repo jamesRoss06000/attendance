@@ -28,14 +28,15 @@
           <ion-select-option *ngFor="let name of names" [value]="">{{ name.nom }} </ion-select-option>
         </ion-select>
         <br>
-        <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #date>
-        </ion-input>
+        <!-- <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #date>
+        </ion-input> -->
+        <ion-datetime id="date" displayFormat="YYYY-MMM-DD" min="2019-01-01" max="2050-12-09" placeholder="Date de réunion"></ion-datetime>
         <br>
-        <ion-input type="time" id="time" placeholder="Debut de réunion" class="inputBox" #time>
-        </ion-input>
+        <ion-datetime type="time" id="time" displayFormat="HH:mm" placeholder="Debut de réunion" #time>
+        </ion-datetime>
         <br>
-        <ion-input type="time" id="timeEnd" placeholder="Fin de réunion" class="inputBox" #timeEnd>
-        </ion-input>
+        <ion-datetime type="time" id="timeEnd" displayFormat="HH:mm" placeholder="Fin de réunion" #timeEnd>
+        </ion-datetime>
         <br>
         <ion-select type="text" id="lieu" name="lieu" placeholder="Selectionnez le campus'" class="inputBox" #lieu>
           <ion-select-option *ngFor="let lieu of lieux" [value]="">{{ lieu.campus }} </ion-select-option>

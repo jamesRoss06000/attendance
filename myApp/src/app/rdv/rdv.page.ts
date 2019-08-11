@@ -61,14 +61,17 @@ export class RdvPage implements OnInit {
     const target = event.target;
     const classe = target.querySelector('#classe').value;
     const name = target.querySelector('#name').value;
-    const date = target.querySelector('#date').value;
-    const time = target.querySelector('#time').value;
-    const timeEnd = target.querySelector('#timeEnd').value;
+    var strDate = target.querySelector('#date').value;
+    let date = strDate.substring(0, 10);
+    var strTime = target.querySelector('#time').value;
+    let time = strTime.substring(11,16);
+    var strTimeEnd = target.querySelector('#timeEnd').value;
+    let timeEnd = strTimeEnd.substring(11,16);
     const lieu = target.querySelector('#lieu').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.addRdv(classe, name, date, time, timeEnd, lieu, id);
-    console.log(id, classe, name, date, time, lieu);
+    // console.log(id, classe, name, date, time, lieu);
   }
 
   addRdv(classe, name, date, time, timeEnd, lieu, id) {
@@ -81,7 +84,6 @@ export class RdvPage implements OnInit {
       lieu
     })
       .subscribe(data => {
-        // this.names = Object.values(data);
         this.router.navigate(['/home/', id]);
       },
         error => {
