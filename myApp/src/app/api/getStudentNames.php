@@ -1,24 +1,25 @@
 <?php
 
-// header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Headers: Origin, Content-Type");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Origin, Content-Type");
 
-// require_once("connection2.php");
+require_once("connection2.php");
 
-// $rest_json = file_get_contents("php://input");
-// $_POST = json_decode($rest_json, true);
+$rest_json = file_get_contents("php://input");
+$_POST = json_decode($rest_json, true);
 
-// if (isset($_POST["date"])) {
+if (isset($_POST["date"])) {
 
-//     $origDate = date("Y-m-d", strtotime($_POST['date']));
-//     $date = $origDate;
-//     $id = $_GET['id'];
-//     $id_planning = $_POST['id_planning'];
+    $origDate = date("Y-m-d", strtotime($_POST['date']));
+    $date = $origDate;
+    $id = $_GET['id'];
+    $id_planning = $_POST['id_planning'];
 
-//     $getClasse = $conn->prepare("SELECT * FROM planning WHERE id_planning = :id_planning");
-//     $getClasse->execute([':id_planning' => $id_planning]);
-//     $details = $getClasse->fetchAll();
-//     $classe = $details[0]['classe'];
+    $getClasse = $conn->prepare("SELECT * FROM planning WHERE id_planning = :id_planning");
+    $getClasse->execute([':id_planning' => $id_planning]);
+    $details = $getClasse->fetchAll();
+    $classe = $details[0]['classe'];
+    echo $classe;
 
     // $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` = :classe");
     // $stmt->execute([':classe' => $classe]);
@@ -37,4 +38,4 @@
 // }
 // else{
 //     echo "get";
-// }
+}
