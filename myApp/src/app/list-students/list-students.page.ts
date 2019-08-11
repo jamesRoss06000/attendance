@@ -32,7 +32,6 @@ export class ListStudentsPage implements OnInit {
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
         console.log(this.students, this.planning_id);
       }
-      // console.log("students", this.students, this.planning_id);
     });
   }
 
