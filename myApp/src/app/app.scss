@@ -11,7 +11,7 @@ h3 {
 
 .inputBox {
   border: 1px solid rgb(69, 69, 69);
-  height: 35px;
+  height: 40px;
 }
 
 .classList, ion-input, #dateInput, input {
@@ -31,7 +31,7 @@ ion-button, .dateBtn {
 
 ion-datetime {
   width: 100%;
-  text-align: center;
+  // text-align: center;
   font-size: 18px;
   padding-bottom: 10px;
 }
@@ -56,5 +56,5 @@ ion-datetime {
 
 ::placeholder {
   color: rgb(69, 69, 69);
-  padding-left: 10px;
+  // padding-left: 10px;
 }
