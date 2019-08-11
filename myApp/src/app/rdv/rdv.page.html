@@ -27,21 +27,22 @@
         <ion-select type="text" id="name" name="name" placeholder="Selectionnez l'étudiant'" class="inputBox" #name>
           <ion-select-option *ngFor="let name of names" [value]="">{{ name.nom }} </ion-select-option>
         </ion-select>
-        <ion-item>
-          <ion-datetime id="date" placeholder="Date de réunion" display-format="YYYY MMM DD"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-datetime id="time" placeholder="Debut de réunion" display-format="HH:mm"></ion-datetime>
-        </ion-item>
-        <ion-item>
-          <ion-datetime id="timeEnd" placeholder="Fin de réunion" display-format="HH:mm"></ion-datetime>
-        </ion-item>
+        <br>
+        <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #date>
+        </ion-input>
+        <br>
+        <ion-input type="time" id="time" placeholder="Debut de réunion" class="inputBox" #time>
+        </ion-input>
+        <br>
+        <ion-input type="time" id="timeEnd" placeholder="Fin de réunion" class="inputBox" #timeEnd>
+        </ion-input>
+        <br>
         <ion-select type="text" id="lieu" name="lieu" placeholder="Selectionnez le campus'" class="inputBox" #lieu>
           <ion-select-option *ngFor="let lieu of lieux" [value]="">{{ lieu.campus }} </ion-select-option>
         </ion-select>
         <br>
         <input type="submit" class="dateBtn" value="CONFIRMEZ">
-
+        <br>
         <ion-button class="logout" color="danger" (click)="logout()">
           Quitter l'application
         </ion-button>
