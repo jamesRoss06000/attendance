@@ -28,10 +28,13 @@
           <ion-select-option *ngFor="let name of names" [value]="">{{ name.nom }} </ion-select-option>
         </ion-select>
         <br>
-        <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #password>
+        <ion-input type="date" id="date" class="inputBox" placeholder="Date de RDV" #date>
         </ion-input>
         <br>
-        <ion-input type="time" id="time" class="inputBox" placeholder="Heure de RDV" #password>
+        <ion-input type="time" id="time" class="inputBox" placeholder="Heure de RDV" #time>
+        </ion-input>
+        <br>
+        <ion-input type="time" id="timeEnd" class="inputBox" placeholder="Fin de RDV" #timeEnd>
         </ion-input>
         <br>
         <ion-select type="text" id="lieu" name="lieu" placeholder="Selectionnez le campus'" class="inputBox" #lieu>

@@ -63,19 +63,21 @@ export class RdvPage implements OnInit {
     const name = target.querySelector('#name').value;
     const date = target.querySelector('#date').value;
     const time = target.querySelector('#time').value;
+    const timeEnd = target.querySelector('#timeEnd').value;
     const lieu = target.querySelector('#lieu').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.addRdv(classe, name, date, time, lieu, id);
+    this.addRdv(classe, name, date, time, timeEnd, lieu, id);
     // console.log(id, classe, name, date, time, lieu);
   }
 
-  addRdv(classe, name, date, time, lieu, id) {
+  addRdv(classe, name, date, time, timeEnd, lieu, id) {
     this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/addRdv.php?id=' + id, {
       classe,
       name,
       date,
       time,
+      timeEnd,
       lieu
     })
       .subscribe(data => {
