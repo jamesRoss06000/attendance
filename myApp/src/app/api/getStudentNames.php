@@ -13,12 +13,13 @@ if (isset($_POST['date'])) {
     $origDate = date("Y-m-d", strtotime($_POST['date']));
     $date = $origDate;
     $id = $_GET['id'];
+    $classe = "Spring 2019";
     $id_planning = $_POST['id_planning'];
-    // echo json_encode($date);
-    $getClasse = $conn->prepare("SELECT * FROM planning WHERE `id_planning` = :id_planning");
-    $getClasse->execute([':id_planning' => $id_planning]);
-    $getDetails = $getClasse->fetchAll();
-    $classe = $getDetails[0]['classe'];
+
+    // $getClasse = $conn->prepare("SELECT * FROM planning WHERE `id_planning` = :id_planning");
+    // $getClasse->execute([':id_planning' => $id_planning]);
+    // $getDetails = $getClasse->fetchAll();
+    // $classe = $getDetails[0]['classe'];
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = classe OR `nom` = :nom");
     $stmt->execute([':nom' => $classe, ':classe' => $classe]);
