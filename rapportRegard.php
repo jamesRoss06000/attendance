@@ -59,7 +59,7 @@ require_once("connection.php");
             $sql = ("SELECT `date`, `cours`, `justified`, `justificatif` FROM `absences` WHERE `etudiant` = :etudiant AND `classe` = :classe");
             $result = $conn->prepare($sql);
             $result->execute([":etudiant" => $etudiant, ":classe" => $classe]);
-            echo "<div id='formDiv' class='modal-dialog'>";
+            echo "<div id='HTMLtoPDF' class='modal-dialog'>";
             echo "<div class='modal-content'>";
             echo "<br>";
             echo "<div action='rapportRegard.php' method='post' class='modal-content'>";
@@ -75,7 +75,7 @@ require_once("connection.php");
             }
             echo "</table>";
             echo "<div class='form-group col-md-12'>";
-            echo "<button type='submit' class='btn btn-success btn-width'>Créer un PDF</button>";
+            echo "<a href='#' onclick='HTMLtoPDF()' class='btn btn-success btn-width'>Télécharger un PDF</button>";
             echo "<a href='mainMenu.php' class='btn btn-danger btn-width'>Annule</a>";
             echo "</div";
             echo "</div";
@@ -85,6 +85,10 @@ require_once("connection.php");
         }
         ?>
     </div>
+    <!-- these js files are used for making PDF -->
+	<script src="js/jspdf.js"></script>
+	<script src="js/jquery-2.1.3.js"></script>
+	<script src="js/pdfFromHTML.js"></script>
 </body>
 
 </html>
