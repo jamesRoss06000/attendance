@@ -18,7 +18,7 @@ require_once("connection.php");
 </head>
 
 <body>
-    <div id="rapportTable">
+    <div id='HTMLtoPDF'>
     <?php
         if (isset($_POST["classe"], $_POST["etudiant"])) {
             $id =  $_POST['etudiant'];
@@ -59,7 +59,7 @@ require_once("connection.php");
             $sql = ("SELECT `date`, `cours`, `justified`, `justificatif` FROM `absences` WHERE `etudiant` = :etudiant AND `classe` = :classe");
             $result = $conn->prepare($sql);
             $result->execute([":etudiant" => $etudiant, ":classe" => $classe]);
-            echo "<div id='HTMLtoPDF' class='modal-dialog'>";
+            echo "<div class='modal-dialog'>";
             echo "<div class='modal-content'>";
             echo "<br>";
             echo "<div action='rapportRegard.php' method='post' class='modal-content'>";
