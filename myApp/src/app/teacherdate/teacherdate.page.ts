@@ -109,13 +109,12 @@ export class TeacherdatePage {
   // Calendar event was clicked
   async onEventSelected(event) {
     {
-      event.preventDefault();
       let date = event.startTime;
       const id_planning = event.id;
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       // console.log("plannng", id, date, id_planning);
-      this.Auth.getStudentList(id, date, id_planning);
+      this.Auth.getStudentList(date, id, id_planning);
     }
   }
 
