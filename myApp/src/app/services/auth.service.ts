@@ -24,10 +24,10 @@ export class AuthService {
         return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/calendarStudent.php', {
           id
         }).subscribe(data => {
-          let planningData = Object.values(data);
+          let studentPlanningData = Object.values(data);
           let navExtras: NavigationExtras = {
             state: {
-              studentplanning: planningData
+              studentplanning: studentPlanningData
             }
           }
           this.router.navigate(['/studentdate/', id], navExtras);
