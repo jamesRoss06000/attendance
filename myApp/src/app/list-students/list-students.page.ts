@@ -44,6 +44,8 @@ export class ListStudentsPage implements OnInit {
 
   signalAbsence(event, students) {
     event.preventDefault();
+    const url = window.location.href;
+    const id = url.substring(url.lastIndexOf('/') + 1);
     for (let i = 0; i < students.length; i++) {
       if (!students[i].value || students[i].value == "undefined") {
         students[i].value = false;
@@ -51,12 +53,10 @@ export class ListStudentsPage implements OnInit {
         const classe = students[i].classe;
         const etudiant_nom = students[i].nom;
         const etudiant_id = students[i].id;
-        const url = window.location.href;
-        const id = url.substring(url.lastIndexOf('/') + 1);
         this.Auth.updateAbsenceDb(planning_id, classe, id, etudiant_nom, etudiant_id);
-        this.router.navigate(['teacherdate/', id]);
         // console.log(planning_id);
       }
+      this.router.navigate(['teacherdate/', id]);
       // console.log(students[i].nom, students[i].date, students[i].cours, students[i].lieux, students[i].id);
     }
     alert("Mis à jour effectué");

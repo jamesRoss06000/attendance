@@ -113,7 +113,7 @@ export class TeacherdatePage {
       const id_planning = event.id;
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
-      // console.log("plannng", id, date, id_planning);
+      console.log("plannng", id, date, id_planning);
       this.Auth.getStudentList(date, id, id_planning);
     }
   }
