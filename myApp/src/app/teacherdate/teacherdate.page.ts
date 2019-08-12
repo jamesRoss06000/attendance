@@ -109,7 +109,7 @@ export class TeacherdatePage {
   // Calendar event was clicked
   async onEventSelected(event) {
     {
-      // event.preventDefault();
+      event.preventDefault();
       let date = event.startTime;
       const id_planning = event.id;
       const url = window.location.href;
