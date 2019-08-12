@@ -34,5 +34,5 @@ if (isset($_POST['date'])) {
         echo json_encode($errors);
         return;
     }
-    $conn->close();
+    // $conn->close();
 }
