@@ -10,12 +10,13 @@ if (isset($_POST["date"])) {
     $date = $origDate;
     $id = $_GET['id'];
     $id_planning = $_POST['id_planning'];
-    
-    $getClasse = $conn->prepare("SELECT classe FROM planning WHERE id_planning = :id_planning");
+
+    $getClasse = $conn->prepare("SELECT * FROM planning WHERE id_planning = :id_planning");
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();
     $classe = $details[0]['classe'];
-    // var_dump($classe);
+    $nom = $details[0]['nom'];
+    
     $stmt = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe OR `nom` = :nom");
     $stmt->execute([':classe' => $classe, ':nom' => $classe]);
     if ($stmt->rowCount() > 0) {
