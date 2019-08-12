@@ -81,9 +81,9 @@ export class AuthService {
   getStudentList(id, date, id_planning) {
     return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/getStudentNames.php?id=' + id, {
       date,
-      id_planning
+      id_planning,
     }).subscribe(data => {
-      // console.log(Object.values(data));
+      console.log(Object.values(data));
       let studentData = Object.values(data);
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);

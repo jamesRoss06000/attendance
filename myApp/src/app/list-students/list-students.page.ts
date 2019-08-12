@@ -21,16 +21,15 @@ export class ListStudentsPage implements OnInit {
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.students = this.router.getCurrentNavigation().extras.state.studentLists[0];
+        this.students = this.router.getCurrentNavigation().extras.state.students[0];
         
         // var outputData = [];
         // var tmp = this.router.getCurrentNavigation().extras.state.students[0];
         // Object.keys(tmp).forEach(function(key){
         //   outputData.push(tmp[key]);
         // });
-        
-        this.planning_id = this.router.getCurrentNavigation().extras.state.studentLists[1];
-        console.log(this.students, this.planning_id);
+        this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
+        console.log("test error 500");
       }
     });
   }
