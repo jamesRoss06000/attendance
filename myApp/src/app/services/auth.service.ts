@@ -27,7 +27,7 @@ export class AuthService {
           let planningData = Object.values(data);
           let navExtras: NavigationExtras = {
             state: {
-              planning: planningData
+              studentplanning: planningData
             }
           }
           this.router.navigate(['/studentdate/', id], navExtras);

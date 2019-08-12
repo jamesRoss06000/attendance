@@ -20,7 +20,7 @@ export class StudentdatePage {
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
-        this.planning = this.router.getCurrentNavigation().extras.state.planning;
+        this.planning = this.router.getCurrentNavigation().extras.state.studentplanning;
 
         this.planning.forEach(element => {
           let dateEvent = [];
@@ -99,7 +99,7 @@ export class StudentdatePage {
     this.calendar.currentDate = new Date();
   }
 
-  // Selected date reange and hence title changed
+  // Selected date range and hence title changed
   onViewTitleChanged(title) {
     this.viewTitle = title;
   }
