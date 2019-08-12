@@ -30,7 +30,7 @@ if (isset($_POST["date"])) {
         $stmt1->execute([':classe' => $classe]);
         if ($stmt1->rowCount() > 0) {
             $output1 = array();
-            $output1 = $stmt->fetchAll();
+            $output1 = $stmt1->fetchAll();
             $newOutput1 = array();
             array_push($newOutput1, $output1, $id_planning);
             echo json_encode($newOutput1);
