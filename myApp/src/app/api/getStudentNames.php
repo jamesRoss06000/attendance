@@ -17,8 +17,8 @@ if (isset($_POST["date"])) {
     $classe = $details[0]['classe'];
     $nom = $details[0]['nom'];
 
-    $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` = :nom AND `classe` = :classe");
-    $stmt->execute([':nom' => $nom, ':classe' => $classe]);
+    $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` = :nom");
+    $stmt->execute([':nom' => $nom]);
     if ($stmt->rowCount() > 0) {
         $output = array();
         $output = $stmt->fetchAll();
