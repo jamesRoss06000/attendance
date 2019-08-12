@@ -10,6 +10,7 @@ if (isset($_POST["date"])) {
     $date = $origDate;
     $id = $_GET['id'];
     $id_planning = $_POST['id_planning'];
+    
     $getClasse = $conn->prepare("SELECT classe FROM planning WHERE id_planning = :id_planning");
     $getClasse->execute([':id_planning' => $id_planning]);
     $details = $getClasse->fetchAll();

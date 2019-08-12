@@ -22,14 +22,13 @@ export class ListStudentsPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.students = this.router.getCurrentNavigation().extras.state.students[0];
-        
         // var outputData = [];
         // var tmp = this.router.getCurrentNavigation().extras.state.students[0];
         // Object.keys(tmp).forEach(function(key){
         //   outputData.push(tmp[key]);
         // });
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
-        console.log("test error 500");
+        console.log(this.students, this.planning_id);
       }
     });
   }
