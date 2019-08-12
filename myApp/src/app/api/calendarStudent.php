@@ -18,7 +18,7 @@ if (isset($_POST["id"])) {
     $classe = $userDetails[0]['classe'];
 
     $stmt = $conn->prepare("SELECT * FROM planning WHERE `nom` = :name OR `classe` = :classe");
-    $stmt->execute([':name' => $name]);
+    $stmt->execute([':name' => $name, ':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {
         $output = array();
