@@ -29,7 +29,7 @@ export class RdvPage implements OnInit {
     });
   }
 
-  onSelectChange(event, i) {
+  onSelectChange(event) {
     if (event.target) {
       this.classes.value = true;
       console.log(event.target.value);
