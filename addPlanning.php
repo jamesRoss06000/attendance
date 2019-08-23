@@ -113,17 +113,17 @@ require_once("addPlanningTreatment.php");
         </div>
     </div>
     <script>
-        $(document).ready(function() {
-            var etudiantBlocked = $("#name");
-            var selectedOtNot = $("#classe");
-            selectedOtNot.on("click", function() {
-                if ($(this).val() != "") {
-                    etudiantBlocked.removeAttr("disabled");
-                } else {
-                    etudiantBlocked.attr("disabled", "");
-                }
-            });
-        });
+        // $(document).ready(function() {
+        //     var etudiantBlocked = $("#name");
+        //     var selectedOtNot = $("#classe");
+        //     selectedOtNot.on("click", function() {
+        //         if ($(this).val() != "") {
+        //             etudiantBlocked.removeAttr("disabled");
+        //         } else {
+        //             etudiantBlocked.attr("disabled", "");
+        //         }
+        //     });
+        // });
     </script>
 </body>
 

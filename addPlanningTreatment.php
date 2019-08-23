@@ -53,24 +53,24 @@ function checkError($post)
 if (isset($_POST["date"], $_POST["lieux"], $_POST["cours"])) {
     $errors = checkError($_POST);
     if (empty($errors)) {
-        $classe = filter_input(INPUT_POST, "classe");
-        $date = filter_input(INPUT_POST, "date");
-            $lieux = filter_input(INPUT_POST, "lieux");
-            $getAdresse = $conn->prepare("SELECT * FROM lieux WHERE campus = :lieux");
-            $getAdresse->execute([':lieux' => $lieux]);
-            $adresseList = $getAdresse->fetchAll();
-            $adresse = $adresseList[0]['adresse'];
+        // $classe = filter_input(INPUT_POST, "classe");
+        // $date = filter_input(INPUT_POST, "date");
+        //     $lieux = filter_input(INPUT_POST, "lieux");
+        //     $getAdresse = $conn->prepare("SELECT * FROM lieux WHERE campus = :lieux");
+        //     $getAdresse->execute([':lieux' => $lieux]);
+        //     $adresseList = $getAdresse->fetchAll();
+        //     $adresse = $adresseList[0]['adresse'];
         $cours = filter_input(INPUT_POST, "cours");
-        $theme = filter_input(INPUT_POST, "theme");
-        $debut_am = filter_input(INPUT_POST, "debut_am");
-        $fin_am = filter_input(INPUT_POST, "fin_am");
-        $debut_pm = filter_input(INPUT_POST, "debut_pm");
-        $fin_pm = filter_input(INPUT_POST, "fin_pm");
-            $intervenant_id = $_GET['id'];
-            $getTeacher = $conn->prepare("SELECT * FROM users WHERE id = :intervenant_id");
-            $getTeacher->execute([':intervenant_id' => $intervenant_id]);
-            $intervenantList = $getTeacher->fetchAll();
-            $intervenant_name = $intervenantList[0]['nom'];
+        // $theme = filter_input(INPUT_POST, "theme");
+        // $debut_am = filter_input(INPUT_POST, "debut_am");
+        // $fin_am = filter_input(INPUT_POST, "fin_am");
+        // $debut_pm = filter_input(INPUT_POST, "debut_pm");
+        // $fin_pm = filter_input(INPUT_POST, "fin_pm");
+        //     $intervenant_id = $_GET['id'];
+        //     $getTeacher = $conn->prepare("SELECT * FROM users WHERE id = :intervenant_id");
+        //     $getTeacher->execute([':intervenant_id' => $intervenant_id]);
+        //     $intervenantList = $getTeacher->fetchAll();
+        //     $intervenant_name = $intervenantList[0]['nom'];
 
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
