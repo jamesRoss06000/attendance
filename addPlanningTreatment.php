@@ -77,8 +77,10 @@ if (isset($_POST["date"], $_POST["lieux"], $_POST["cours"])) {
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
         } else {
-            $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`,`intervenant_name`, `intervenant_id`, `classe`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :classe, :name)");
-            $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':time' => $time, ':timeEnd' => $timeEnd, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':classe' => $classe, ':name' => $name]);
+            // $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`,`intervenant_name`, `intervenant_id`, `classe`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :classe, :name)");
+            // $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':time' => $time, ':timeEnd' => $timeEnd, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':classe' => $classe, ':name' => $name]);
+            $sql = $conn->prepare("INSERT INTO `planning`(`cours`) VALUES (:cours)");
+            $sql->execute([':cours' => $cours]);
             header('Location: addPlanning.php?id=Database updated');
         }
         // $conn->close();
