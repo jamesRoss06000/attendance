@@ -29,21 +29,23 @@
                 <a href="addEtudiantToCours.php"><button type="submit" class="btn btn-success btn-width">
                         Inscrire l'étudiant dans un leçon</button></a>
                 <br>
-                <a href="addPlanning.php"><button type="submit" class="btn btn-success btn-width">
-                        Ajouter une leçon à la planification</button></a>
+                <a href="addAbsences.php"><button type="submit" class="btn btn-success btn-width">
+                    Ajouter absence</button></a>
                 <br>
-                <a href="addAbsences.php"><button type="submit" class="btn btn-success btn-width">Ajouter absence</button></a>
+                <a href="modifyAbsencesHome.php"><button type="submit" class="btn btn-success btn-width">
+                    Modifier/Supprimer absence</button></a>
                 <br>
-                <a href="modifyAbsencesHome.php"><button type="submit" class="btn btn-success btn-width">Modifier/Supprimer absence</button></a>
+                <a href="rapport.php"><button type="submit" class="btn btn-success btn-width">
+                    Exécuter un rapport</button></a>
                 <br>
-                <a href="rapport.php"><button type="submit" class="btn btn-success btn-width">Exécuter un rapport</button></a>
-                <br>
-                <a href="addUser.php"><button type="submit" class="btn btn-success btn-width">Ajouter un utilisateur</button></a>
+                <a href="addUser.php"><button type="submit" class="btn btn-success btn-width">
+                    Ajouter un utilisateur</button></a>
                 <br>
                 <a href="addCampus.php"><button type="submit" class="btn btn-success btn-width">
                         Ajouter un nouveau campus</button></a>
                 <br>
-                <a href="addJustificatif.php"><button type="submit" class="btn btn-success btn-width">Ajouter un nouveau justificatif</button></a>
+                <a href="addJustificatif.php"><button type="submit" class="btn btn-success btn-width">
+                    Ajouter un nouveau justificatif</button></a>
                 <br>
             </div>
         </div>
