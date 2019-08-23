@@ -84,8 +84,9 @@ export class AuthService {
       id,
       id_planning,
     }).subscribe(data => {
-      console.log(Object.values(data));
+      // console.log(Object.values(data));
       let studentData = Object.values(data);
+      console.log(studentData, "testing");
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       let navExtras: NavigationExtras = {

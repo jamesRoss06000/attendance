@@ -16,6 +16,8 @@ export class ListStudentsPage implements OnInit {
   outputData: any;
   students: any;
   platform: any;
+  place: any;
+  all: [any];
   authState$: Observable<boolean>;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {
@@ -28,7 +30,8 @@ export class ListStudentsPage implements OnInit {
         //   outputData.push(tmp[key]);
         // });
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
-        console.log(this.students, this.planning_id);
+        this.place = this.router.getCurrentNavigation().extras.state.students[2];
+        console.log("test");
       }
     });
   }
@@ -41,6 +44,8 @@ export class ListStudentsPage implements OnInit {
       this.students[i].value = false;
     }
   }
+
+  var 
 
   signalAbsence(event, students) {
     event.preventDefault();
