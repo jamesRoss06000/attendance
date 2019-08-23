@@ -7,35 +7,35 @@ $result2 = $connect->query("SELECT id, nom FROM users WHERE role = 'intervenant'
 
 function verifyFields($field)
 {
-    $date = filter_input(INPUT_POST, "date");
-    $lieux = filter_input(INPUT_POST, "lieux");
+    // $date = filter_input(INPUT_POST, "date");
+    // $lieux = filter_input(INPUT_POST, "lieux");
     $cours = filter_input(INPUT_POST, "cours");
-    $intervenant = filter_input(INPUT_POST, "intervenant");
+    // $intervenant = filter_input(INPUT_POST, "intervenant");
 
     $msgReturn = "";
 
     switch ($field) {
-        case "date":
-            if ($date == "") {
-                $msgReturn .= "Please select a date<br>";
-            }
-            break;
-        case "lieux":
-            if ($lieux == "") {
-                $msgReturn .= "Please select location<br>";
-            }
-            break;
+        // case "date":
+        //     if ($date == "") {
+        //         $msgReturn .= "Please select a date<br>";
+        //     }
+        //     break;
+        // case "lieux":
+        //     if ($lieux == "") {
+        //         $msgReturn .= "Please select location<br>";
+        //     }
+        //     break;
         case "cours":
             if ($cours == "") {
                 $msgReturn .= "Please select the subject<br>";
             }
             break;
-        case "intervenant":
-            if ($intervenant == "") {
-                $msgReturn .= "Please select the teacher<br>";
-            }
-            break;
-    }
+    //     case "intervenant":
+    //         if ($intervenant == "") {
+    //             $msgReturn .= "Please select the teacher<br>";
+    //         }
+    //         break;
+    // }
     return $msgReturn;
 }
 
