@@ -31,7 +31,7 @@ export class ListStudentsPage implements OnInit {
         // });
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
         this.place = this.router.getCurrentNavigation().extras.state.students[2];
-        console.log("test");
+        console.log("test", this.place);
       }
     });
   }
