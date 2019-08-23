@@ -14,27 +14,27 @@ require_once("addPlanningTreatment.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        // function showUser(str) {
-        //     if (str == "") {
-        //         document.getElementById("etudiant").innerHTML = "";
-        //         return;
-        //     }
-        //     if (window.XMLHttpRequest) {
-        //         // code for IE7+, Firefox, Chrome, Opera, Safari
-        //         xmlhttp = new XMLHttpRequest();
-        //     } else { // code for IE6, IE5
-        //         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        //     }
-        //     xmlhttp.onreadystatechange = function() {
-        //         if (this.readyState == 4 && this.status == 200) {
-        //             document.getElementById("etudiant").innerHTML = this.responseText;
-        //         }
-        //     }
-        //     xmlhttp.open("GET", "getUsers.php?q=" + str, true);
-        //     xmlhttp.send();
-        // }
-    </script>
+    <!-- <script>
+        function showUser(str) {
+            if (str == "") {
+                document.getElementById("etudiant").innerHTML = "";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            } else { // code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("etudiant").innerHTML = this.responseText;
+                }
+            }
+            xmlhttp.open("GET", "getUsers.php?q=" + str, true);
+            xmlhttp.send();
+        }
+    </script> -->
 </head>
 
 <body>
@@ -112,7 +112,7 @@ require_once("addPlanningTreatment.php");
             </form>
         </div>
     </div>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             var etudiantBlocked = $("#name");
             var selectedOtNot = $("#classe");
@@ -124,7 +124,7 @@ require_once("addPlanningTreatment.php");
                 }
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

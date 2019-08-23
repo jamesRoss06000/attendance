@@ -8,8 +8,6 @@ $result2 = $connect->query("SELECT id, nom FROM users WHERE role = 'intervenant'
 function verifyFields($field)
 {
     $date = filter_input(INPUT_POST, "date");
-    $time = filter_input(INPUT_POST, "time");
-    $duration = filter_input(INPUT_POST, "duration");
     $lieux = filter_input(INPUT_POST, "lieux");
     $cours = filter_input(INPUT_POST, "cours");
     $intervenant = filter_input(INPUT_POST, "intervenant");
@@ -20,16 +18,6 @@ function verifyFields($field)
         case "date":
             if ($date == "") {
                 $msgReturn .= "Please select a date<br>";
-            }
-            break;
-        case "time":
-            if ($time == "") {
-                $msgReturn .= "Please select a time<br>";
-            }
-            break;
-        case "duration":
-            if ($duration == "") {
-                $msgReturn .= "Please select duration<br>";
             }
             break;
         case "lieux":
@@ -79,10 +67,10 @@ if (isset($_POST["date"], $_POST["lieux"], $_POST["cours"])) {
         $debut_pm = filter_input(INPUT_POST, "debut_pm");
         $fin_pm = filter_input(INPUT_POST, "fin_pm");
         $intervenant_id = filter_input(INPUT_POST, "intervenant");
-            $getId = $conn->prepare("SELECT * FROM users WHERE id = :intervenant_id");
-            $getId->execute([':intervenant_id' => $intervenant_id]);
-            $details = $getId->fetchAll();
-            $intervenant_name = $details[0]['nom'];
+        $getId = $conn->prepare("SELECT * FROM users WHERE id = :intervenant_id");
+        $getId->execute([':intervenant_id' => $intervenant_id]);
+        $details = $getId->fetchAll();
+        $intervenant_name = $details[0]['nom'];
 
         if (!$conn) {
             echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -93,6 +81,6 @@ if (isset($_POST["date"], $_POST["lieux"], $_POST["cours"])) {
             $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':debut_am' => $debut_am, ':fin_am' => $fin_am, ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name, ':intervenant_id' => $intervenant_id, ':classe' => $classe]);
             header('Location: addPlanning.php?id=Database updated');
         }
-        $conn->close();
+        // $conn->close();
     }
 }
