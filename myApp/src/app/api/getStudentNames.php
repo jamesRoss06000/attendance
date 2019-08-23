@@ -25,7 +25,7 @@ if (isset($_POST["date"])) {
         $output = array();
         $output = $stmt->fetchAll();
         $newOutput = array();
-        array_push($newOutput, $output, $id_planning, $details);
+        array_push($newOutput, $output, $id_planning, $lieux);
         echo json_encode($newOutput);
     } else {
         $stmt1 = $conn->prepare("SELECT * FROM users WHERE `classe` = :classe");
@@ -34,7 +34,7 @@ if (isset($_POST["date"])) {
             $output1 = array();
             $output1 = $stmt1->fetchAll();
             $newOutput1 = array();
-            array_push($newOutput1, $output1, $id_planning, $details);
+            array_push($newOutput1, $output1, $id_planning, $lieux);
             echo json_encode($newOutput1);
         }
     }
