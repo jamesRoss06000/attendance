@@ -112,7 +112,7 @@ require_once("addPlanningTreatment.php");
             </form>
         </div>
     </div>
-    <!-- <script>
+    <script>
         $(document).ready(function() {
             var etudiantBlocked = $("#name");
             var selectedOtNot = $("#classe");
@@ -124,7 +124,7 @@ require_once("addPlanningTreatment.php");
                 }
             });
         });
-    </script> -->
+    </script>
 </body>
 
 </html>
