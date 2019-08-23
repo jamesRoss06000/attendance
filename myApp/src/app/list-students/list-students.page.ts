@@ -25,7 +25,7 @@ export class ListStudentsPage implements OnInit {
       if (this.router.getCurrentNavigation().extras.state) {
         this.students = this.router.getCurrentNavigation().extras.state.students[0];
         this.planning_id = this.router.getCurrentNavigation().extras.state.students[1];
-        this.place = this.router.getCurrentNavigation().extras.state.students[2].lieux;
+        this.place = this.router.getCurrentNavigation().extras.state.students[2];
         console.log("test", this.place);
       }
     });
