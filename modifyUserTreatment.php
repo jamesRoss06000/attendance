@@ -27,22 +27,22 @@ function verifyFields($field)
             break;
         case "telephone":
             if ($telephone == "") {
-                // $msgReturn .= "Please select an option<br>";
+                $msgReturn .= "Please add a telephone number<br>";
             }
             break;
         case "email":
             if ($email == "" && $telephone = "oui") {
-                $msgReturn .= "Please select justification for absence<br>";
+                $msgReturn .= "Please add email address<br>";
             }
             break;
         case "password":
             if ($password == "") {
-                $msgReturn .= "Please select password ID<br>";
+                $msgReturn .= "Please add password<br>";
             }
             break;
         case "role":
             if ($role == "") {
-                $msgReturn .= "Please select role<br>";
+                $msgReturn .= "Please add role<br>";
             }
             break;
     }
@@ -79,7 +79,7 @@ if (isset($_POST["classe"], $_POST["nom"], $_POST["telephone"], $_POST["email"],
             $sql= $conn->prepare = "INSERT INTO `users`(`id`, `nom`, `telephone`, `email`, `password`, `role`, `classe`) VALUES (NULL, :nom, :telephone, :email, :password, :role, :classe)";
             $sql->execute([':id' => $id, ':nom' => $nom, ':telephone' => $telephone, ':email' => $email, ':password' => $password, ':role' => $role, ':classe' => $classe]);
             // sleep(2);
-            header('Location: modifyUserHome.php?id=Database_updated');
+            header('Location: mainMenu.php?id=Database_updated');
         }
         // mysqli_close($conn);
     }

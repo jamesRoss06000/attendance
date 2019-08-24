@@ -3,9 +3,13 @@ require_once("connection.php");
 require_once("modifyUserTreatment.php");
 
 if (!empty($_POST)) {
-    $absenceId = $_GET['id'];
-    $justifie = $_POST['justifie'];
-    $justificatif = $_POST['justificatif'];
+    $userId = $_GET['id'];
+    $nom = $_POST("nom");
+    $telephone = $_POST("telephone");
+    $email = $_POST("email");
+    $password = $_POST("password");
+    $classe = $_POST("classe");
+    $role = $_POST("role");
 
     $add = $conn->prepare("UPDATE `users` SET `justified`= :justifie, `justificatif`= :justificatif WHERE `id` = :id");
     $add->bindParam(':id', $userId, PDO::PARAM_INT);
