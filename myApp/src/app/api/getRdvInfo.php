@@ -19,8 +19,6 @@ if ($stmt2->rowCount() > 0) {
     if ($stmt->rowCount() > 0) {
         $output = array();
         $output = $stmt->fetchAll();
-        // array_push($output, $output1);
-        // var_dump($output);
         $outputEnd = array();
         array_push($outputEnd, $output, $output1);
         echo json_encode($outputEnd);

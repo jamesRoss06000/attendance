@@ -46,38 +46,26 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="modifyAbsence.php?id=<?php echo $absenceId ?>" method="post" class="modal-content">
+            <form action="modifyUser.php?id=<?php echo $userId ?>" method="post" class="modal-content">
                 <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <input name="nom" type="text" class="form-control" id="nom" placeholder="nom" value="<?php echo $result["nom"]; ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="telephone" type="text" class="form-control" id="telephone" placeholder="telephone" value="<?php echo $result["telephone"]; ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="email" type="text" class="form-control" id="email" placeholder="email" value="<?php echo $result["email"]; ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="password" type="text" class="form-control" id="password" placeholder="password" value="<?php echo $result["password"]; ?>">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input name="role" type="text" class="form-control" id="role" placeholder="role" value="<?php echo $result["role"]; ?>">
+                    </div>
                     <div class="form-group col-md-12">
                         <input name="classe" type="text" class="form-control" id="classe" placeholder="classe" value="<?php echo $result["classe"]; ?>">
                     </div>
-                    <div class="form-group col-md-12">
-                        <input name="etudiant" type="text" class="form-control" id="etudiant" placeholder="etudiant" value="<?php echo $result["etudiant"]; ?>">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input name="cours" type="text" class="form-control" id="cours" placeholder="cours" value="<?php echo $result["cours"]; ?>">
-                    </div>
-                    <div class="form-group col-md-12" id="radioDiv">
-                        <label class="radio-inline">
-                            <input type="radio" id="nonBtn" name="justifie" value="non" checked>Non
-                        </label>
-                        &nbsp;
-                        <label class="radio-inline">
-                            <input type="radio" id="ouiBtn" name="justifie" value="oui">Oui
-                        </label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <select name="justificatif" type="select" class="form-control" id="justificatif" placeholder="justificatif" value="<?php echo $result["justificatif"]; ?>">
-                            <option value="">Sélectionnez le justificatif</option>
-                            <?php
-                            while ($rows3 = $result3->fetch_assoc()) {
-                                $jusificatif = $rows3['justificatif'];
-                                echo "<option value='$jusificatif'>$jusificatif</option>";
-                            }
-                            ?>
-                        </select>
-                    </div>
-
                     <button type="submit" class="btn btn-success">Modifiez la ligne</button>
                     <button type="cancel" class="btn btn-danger">Annule</button>
                 </div>
