@@ -1,10 +1,7 @@
 <?php
 require_once("connection.php");
 
-$result = $connect->query("SELECT id, classe FROM classes");
-$result2 = $connect->query("SELECT password FROM password");
-$result3 = $connect->query("SELECT email FROM emails");
-$result4 = $connect->query("SELECT email FROM emails");
+$result = $connect->query("SELECT * FROM users");
 
 function verifyFields($field)
 {
