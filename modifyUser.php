@@ -1,6 +1,6 @@
 <?php
 require_once("connection.php");
-require_once("modifyAbsencesTreatment.php");
+require_once("modifyUserTreatment.php");
 
 if (!empty($_POST)) {
     $absenceId = $_GET['id'];
