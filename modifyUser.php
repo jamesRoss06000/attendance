@@ -7,16 +7,20 @@ if (!empty($_POST)) {
     $justifie = $_POST['justifie'];
     $justificatif = $_POST['justificatif'];
 
-    $add = $conn->prepare("UPDATE `absences` SET `justified`= :justifie, `justificatif`= :justificatif WHERE `id` = :id");
-    $add->bindParam(':justifie', $justifie);
-    $add->bindParam(':justificatif', $justificatif);
-    $add->bindParam(':id', $absenceId, PDO::PARAM_INT);
+    $add = $conn->prepare("UPDATE `users` SET `justified`= :justifie, `justificatif`= :justificatif WHERE `id` = :id");
+    $add->bindParam(':id', $userId, PDO::PARAM_INT);
+    $add->bindParam(':nom', $nom);
+    $add->bindParam(':telephone', $telephone);
+    $add->bindParam(':email', $email);
+    $add->bindParam(':password', $password);
+    $add->bindParam(':role', $role);
+    $add->bindParam(':classe', $classe);
     $add->execute();
-    header('Location: modifyAbsencesHome.php');
+    header('Location: modifyUserHome.php');
     exit;
 }
-$absenceId = $_GET['id'];
-$sqlSelect = "SELECT * FROM `absences` WHERE `id`='$absenceId'";
+$userId = $_GET['id'];
+$sqlSelect = "SELECT * FROM `users` WHERE `id`='$userId'";
 $req = $conn->prepare($sqlSelect);
 $req->execute();
 $result = $req->fetch(PDO::FETCH_ASSOC);
