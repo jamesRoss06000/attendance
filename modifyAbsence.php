@@ -79,7 +79,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                     </div>
 
                     <button type="submit" class="btn btn-success">Modifiez la ligne</button>
-                    <button type="cancel" class="btn btn-danger">Annule</button>
+                    <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
                 </div>
             </form>
         </div>

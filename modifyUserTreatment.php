@@ -76,13 +76,16 @@ if (isset($_POST["classe"], $_POST["nom"], $_POST["telephone"], $_POST["email"],
             echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
             echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
         } else {
-            // UPDATE `users` SET `id`=[value-1],`nom`=[value-2],`telephone`=[value-3],`email`=[value-4],`password`=[value-5],`role`=[value-6],`classe`=[value-7]
-
-            $sql= $conn->prepare = "UPDATE `users` SET `id`=:id, `nom`=:nom, `telephone`=:telephone, `email`=:email, `password`=:password, `role`=:role, `classe`=:classe) VALUES (NULL, :nom, :telephone, :email, :password, :role, :classe";
-            $sql->execute([':id' => $id, ':nom' => $nom, ':telephone' => $telephone, ':email' => $email, ':password' => $password, ':role' => $role, ':classe' => $classe]);
-            // sleep(2);
+            $sql = $conn->prepare("UPDATE `users` SET `nom`=:nom, `telephone`=:telephone, `email`=:email, `password`=:password, `role`=:role, `classe`=:classe where `id`=:id");
+            $sql->bindParam(':nom', $nom);
+            $sql->bindParam(':telephone', $telephone);
+            $sql->bindParam(':email', $email);
+            $sql->bindParam(':password', $password);
+            $sql->bindParam(':role', $role);
+            $sql->bindParam(':classe', $classe);
+            $sql->bindParam(':id', $id);
+            $sql->execute();
             header('Location: mainMenu.php?id=Database_updated');
         }
-        // mysqli_close($conn);
     }
 }
