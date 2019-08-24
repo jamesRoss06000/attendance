@@ -37,29 +37,19 @@ require_once("addUserTreatment.php");
             <form action="addUser.php" method="post" class="modal-content">
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Nom" value="<?php if (isset($_POST['name'])) {
-                                                                                                                    echo htmlentities($_POST['name']);
-                                                                                                                } ?>">
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Nom" value="">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="telephone" type="text" class="form-control" id="telephone" placeholder="Telephone" value="<?php if (isset($_POST['telephone'])) {
-                                                                                                                    echo htmlentities($_POST['telephoone']);
-                                                                                                                } ?>">
+                        <input name="telephone" type="text" class="form-control" id="telephone" placeholder="Telephone" value="">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" value="<?php if (isset($_POST['email'])) {
-                                                                                                                        echo htmlentities($_POST['email']);
-                                                                                                                    } ?>">
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" value="">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" value="<?php if (isset($_POST['password'])) {
-                                                                                                                                        echo htmlentities($_POST['password']);
-                                                                                                                                    } ?>">
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Mot de passe" value="">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme mot de passe" value="<?php if (isset($_POST['confirmPassword'])) {
-                                                                                                                                                                echo htmlentities($_POST['confirmPassword']);
-                                                                                                                                                            } ?>">
+                        <input name="confirmPassword" type="password" class="form-control" id="confirmPassword" placeholder="Confirme mot de passe" value="">
                     </div>
                     <div class="form- group col-md-12">
                         <select name="role" id="role" class="form-control" placeholder="Role">
