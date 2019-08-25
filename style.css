@@ -4,6 +4,18 @@ body {
     background-size: cover;
 }
 
+#action{
+    float: left;
+    padding-left: 30px;
+    width: 40vw;
+}
+
+#absences{
+    float: right;
+    padding-right: 30px;
+    width: 40vw;
+}
+
 .btn-width {
     margin-left: 5px;
     margin-top: 10px;

@@ -74,7 +74,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                     <div class="form-group col-md-12">
                         <input name="classe" type="text" class="form-control" id="classe" placeholder="classe" value="<?php echo $result["classe"]; ?>">
                     </div>
-                    <button type="submit" class="btn btn-success">Modifiez la ligne</button>
+                    <button type="submit" class="btn btn-success btn-width">Modifiez la ligne</button>
                     <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
                 </div>
             </form>

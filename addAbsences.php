@@ -96,15 +96,7 @@ require_once("connection.php");
                         </select>
                     </div>
                     <div class="form-group col-md-12">
-                        <select name="cours" id="cours" class="form-control">
-                            <option value="">Sélectionnez le cours raté</option>
-                            <?php
-                            while ($rows2 = $result2->fetch_assoc()) {
-                                $cours = $rows2['cours'];
-                                echo "<option value='$cours'>$cours</option>";
-                            }
-                            ?>
-                        </select>
+                        <input type="text" name="cours" id="cours" class="form-control" placeholder="Préciser la leçon non suivie">
                     </div>
                     <div class="form-group col-md-12">
                         <input type="date" name="date" id="date" class="form-control" placeholder="Selectionez le date">

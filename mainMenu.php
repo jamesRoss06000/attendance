@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <div id="formDiv" class="modal-dialog">
+<body class="myBody">
+    <div id="action" class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">Sélectionnez l'action à prendre</h3>
@@ -29,26 +29,35 @@
                 <a href="addEtudiantToCours.php"><button type="submit" class="btn btn-success btn-width">
                         Inscrire l'étudiant dans un leçon</button></a>
                 <br>
-                <a href="rapport.php"><button type="submit" class="btn btn-success btn-width">
-                    Exécuter un rapport d'absence</button></a>
-                <br>
-                <a href="addAbsences.php"><button type="submit" class="btn btn-success btn-width">
-                    Ajouter absence</button></a>
-                <br>
-                <a href="modifyAbsencesHome.php"><button type="submit" class="btn btn-success btn-width">
-                    Modifier/Supprimer absence</button></a>
-                <br>
                 <a href="addUser.php"><button type="submit" class="btn btn-success btn-width">
-                    Ajouter un utilisateur</button></a>
+                        Ajouter un utilisateur</button></a>
                 <br>
                 <a href="modifyUserHome.php"><button type="submit" class="btn btn-success btn-width">
-                    Modifier/Supprimer Etudiant/intervenant</button></a>
+                        Modifier/Supprimer Etudiant/intervenant</button></a>
                 <br>
                 <a href="addCampus.php"><button type="submit" class="btn btn-success btn-width">
                         Ajouter un nouveau campus</button></a>
                 <br>
+            </div>
+        </div>
+    </div>
+    <div id="absences" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Gérer les absences</h3>
+            </div>
+            <div class="form-row modal-content" id="contentDiv">
+                <a href="rapport.php"><button type="submit" class="btn btn-success btn-width">
+                        Exécuter un rapport d'absence</button></a>
+                <br>
+                <a href="addAbsences.php"><button type="submit" class="btn btn-success btn-width">
+                        Ajouter absence</button></a>
+                <br>
+                <a href="modifyAbsencesHome.php"><button type="submit" class="btn btn-success btn-width">
+                        Modifier/Supprimer absence</button></a>
+                <br>
                 <a href="addJustificatif.php"><button type="submit" class="btn btn-success btn-width">
-                    Ajouter un nouveau justificatif</button></a>
+                        Ajouter un nouveau justificatif</button></a>
                 <br>
             </div>
         </div>
