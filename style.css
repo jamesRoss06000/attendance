@@ -46,15 +46,14 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-        #action {
-            float: none;
-            padding: none;
-            width: 90vw;
-        }
-        #absences {
-            float: none;
-            padding: none;
-            width: 90vw;
-        }
+    #action {
+        float: none;
+        padding: none;
+        width: 90vw;
+    }
+    #absences {
+        float: none;
+        padding: none;
+        width: 90vw;
     }
 }
