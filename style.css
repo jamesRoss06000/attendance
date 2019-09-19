@@ -47,11 +47,13 @@ a {
 
 @media only screen and (max-width: 600px) {
     #action {
-        display: inline;
+        float: none;
         padding: none;
+        width: 90vw;
     }
     #absences {
-        display: inline;
+        float: none;
         padding: none;
+        width: 90vw;
     }
 }
