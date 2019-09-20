@@ -45,7 +45,6 @@ require_once("indexTreatment.php");
                     </div>
                     <br>
                     <button type="submit" class="btn btn-success btn-width">Login</button>
-                    <button type="cancel" class="btn btn-danger btn-width">Annule</button>
                 </div>
             </form>
         </div>
