@@ -48,7 +48,7 @@ require_once("addCoursPourClasseTreatment.php");
                     </select>
                     <br>
                     <div class="form-group col-md-12">
-                        <p>Sélectionnez un fichier CSV pour télécharger la liste des nouveaux étudiants...</p>
+                        <p>Sélectionnez un fichier CSV pour télécharger la liste des cours...</p>
                         <input type="file" name="fileUpload" value="fileUpload" id="fileUpload" placeholder="Sélectionnez un fichier à télécharger">
                         <br>
                         <br>
