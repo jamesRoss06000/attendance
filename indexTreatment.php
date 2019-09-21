@@ -6,12 +6,13 @@ if (isset($_POST["email"], $_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = "SELECT email, password, role FROM users WHERE email = '" . $email . "' AND password = '" . $password . "'";
-    $result1 = $conn->query($sql);
-    // if (mysqli_num_rows($result1) > 0) {   
-                 if ($result1->rowCount() > 0 && $email == "admin@admin.com") {
-        $LoggedIn = true;
-        sleep(2);
+    $sql = $conn->prepare("SELECT email, password, role FROM users WHERE email = :email AND password = :password");
+    $sql->bindParam(':email', $email);
+    $sql->bindParam(':password', $password);
+    $sql->execute();
+    if ($result1->rowCount() > 0 && $email == "admin@admin.com") {
+        // sleep(2);
+        $_SESSION['admin'] = "Admin logged In";
         header("Location: mainMenu.php");
     } else {
         $errors = "The username or password are incorrect!";
