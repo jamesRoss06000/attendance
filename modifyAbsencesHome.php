@@ -1,8 +1,10 @@
 <?php
 require_once("modifyAbsencesTreatment.php");
 require_once("connection.php");
-require_once("ifSessionNotSet.php");
 session_start();
+if (!isset($_SESSION['admin'])) {
+    require_once("ifSessionNotSet.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

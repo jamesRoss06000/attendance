@@ -2,6 +2,9 @@
 require_once("rapportTreatment.php");
 require_once("connection.php");
 session_start();
+if (!isset($_SESSION['admin'])) {
+    require_once("ifSessionNotSet.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

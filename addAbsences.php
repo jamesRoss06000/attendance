@@ -2,6 +2,9 @@
 require_once("addAbsencesTreatment.php");
 require_once("connection.php");
 session_start();
+if (!isset($_SESSION['admin'])) {
+    require_once("ifSessionNotSet.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,13 +112,6 @@ session_start();
             </form>
         </div>
     </div>
-    <?php
-    if (!isset($_SESSION['admin'])) {
-        echo "<b>Please login to use this system</b>";
-        echo "<td><a class='btn btn-danger btn-modal btn-md' id='login' href='index.php'>Click To Login</a></td>";
-        echo "<script>$(':button').prop('disabled', true);</script>";
-    }
-    ?>
     <script>
         $(document).ready(function() {
             var etudiantBlocked = $("#etudiant");

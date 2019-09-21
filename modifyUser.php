@@ -1,6 +1,10 @@
 <?php
 require_once("connection.php");
 require_once("modifyUserTreatment.php");
+session_start();
+if (!isset($_SESSION['admin'])) {
+    require_once("ifSessionNotSet.php");
+}
 
 if (!empty($_POST)) {
     $userId = $_GET['id'];
