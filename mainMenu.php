@@ -67,6 +67,9 @@ session_start();
             </div>
         </div>
     </div>
+    <?php
+    require_once("ifSessionNotSet.php");
+    ?>
 </body>
 
 </html>
