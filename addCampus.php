@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 require_once("addCampusTreatment.php");
 ?>
 <!DOCTYPE html>
@@ -25,8 +22,8 @@ require_once("addCampusTreatment.php");
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <?php
-            echo implode(" ", $errors);
-            ?>
+                echo implode(" ", $errors);
+                ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -40,7 +37,7 @@ require_once("addCampusTreatment.php");
             <form action="addCampus.php" method="POST" class="modal-content">
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <input name="campus" type="text" class="form-control" id="campus"placeholder="Entrer le nom du campus" value="<?php if (isset($_POST['campus'])) {
+                        <input name="campus" type="text" class="form-control" id="campus" placeholder="Entrer le nom du campus" value="<?php if (isset($_POST['campus'])) {
                                                                                                                                             echo htmlentities($_POST['campus']);
                                                                                                                                         } ?>">
                     </div>
@@ -66,6 +63,11 @@ require_once("addCampusTreatment.php");
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
 </body>
 
 </html>

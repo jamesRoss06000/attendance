@@ -2,9 +2,6 @@
 require_once("rapportTreatment.php");
 require_once("connection.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,6 +86,11 @@ if (!isset($_SESSION['admin'])) {
         }
         ?>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
     <!-- these js files are used for making PDF -->
 	<script src="js/jspdf.js"></script>
 	<script src="js/jquery-2.1.3.js"></script>

@@ -2,9 +2,6 @@
 require_once("modifyAbsencesTreatment.php");
 require_once("connection.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,6 +25,11 @@ if (!isset($_SESSION['admin'])) {
 <body>
     <?php include("modifyUserTable.php") ?>
     <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
     <script>
         var myTable = $("body > table");
         myTable.addClass("table table-striped");

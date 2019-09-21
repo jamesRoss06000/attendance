@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 
 <!DOCTYPE html>
@@ -69,6 +66,11 @@ if (!isset($_SESSION['admin'])) {
             </div>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
 </body>
 
 </html>

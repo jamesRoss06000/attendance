@@ -2,9 +2,6 @@
 require_once("connection.php");
 require_once("modifyUserTreatment.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 
 if (!empty($_POST)) {
     $userId = $_GET['id'];
@@ -84,6 +81,11 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
 </body>
 
 </html>

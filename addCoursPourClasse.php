@@ -1,9 +1,6 @@
 <?php
 require_once("addCoursPourClasseTreatment.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +23,8 @@ if (!isset($_SESSION['admin'])) {
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <?php
-            echo implode(" ", $errors);
-            ?>
+                echo implode(" ", $errors);
+                ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -63,6 +60,11 @@ if (!isset($_SESSION['admin'])) {
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
 </body>
 
 </html>

@@ -1,9 +1,6 @@
 <?php
 require_once("addGroupOfStudentsTreatment.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,24 +38,19 @@ if (!isset($_SESSION['admin'])) {
             <form action="addGroupOfStudents.php" method="POST" enctype="multipart/form-data" class="modal-content">
                 <br>
                 <div class="form-group col-md-12">
-                    <input name="classe" type="text" class="form-control" id="classe" placeholder="Entrez le nom de la classe" value="<?php if (isset($_POST['classe'])) {
-                                                                                                                                            echo htmlentities($_POST['classe']);
-                                                                                                                                        } ?>">
-
+                    <input name="classe" type="text" class="form-control" id="classe" placeholder="Entrez le nom de la classe" 
+                    value="<?php if (isset($_POST['classe'])) {echo htmlentities($_POST['classe']);} ?>">
                     <br>
                     <div class="form-group col-md-12">
-                        <input name="debut" type="date" class="form-control" id="debut" placeholder="Sélectionnez la date de début" value="<?php if (isset($_POST['debut'])) {
-                                                                                                                                                echo htmlentities($_POST['debut']);
-                                                                                                                                            } ?>">
+                        <input name="debut" type="date" class="form-control" id="debut" placeholder="Sélectionnez la date de début" 
+                        value="<?php if (isset($_POST['debut'])) {echo htmlentities($_POST['debut']);} ?>">
                     </div>
                     <div class="form-group col-md-12">
-                        <input name="fin" type="date" class="form-control" id="fin" placeholder="Entrer le numero de telephone" value="<?php if (isset($_POST['fin'])) {
-                                                                                                                                            echo htmlentities($_POST['fin']);
-                                                                                                                                        } ?>">
+                        <input name="fin" type="date" class="form-control" id="fin" placeholder="Entrer le numero de telephone" 
+                        value="<?php if (isset($_POST['fin'])) {echo htmlentities($_POST['fin']);} ?>">
                     </div>
                     <p>Sélectionnez un fichier CSV pour télécharger la liste des nouveaux étudiants...</p>
                     <input type="file" name="fileUpload" value="fileUpload" id="fileUpload" placeholder="Sélectionnez un fichier à télécharger">
-                    <!-- <label for="fileupload">Sélectionnez un fichier à télécharger</label> -->
                     <br>
                     <br>
                     <button type="submit" class="btn btn-success btn-width">Ajouter information</button>
@@ -67,6 +59,11 @@ if (!isset($_SESSION['admin'])) {
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
 </body>
 
 </html>
