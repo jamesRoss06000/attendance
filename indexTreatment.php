@@ -11,7 +11,9 @@ if (isset($_POST["email"], $_POST["password"])) {
     $sql->bindParam(':password', $password);
     $sql->execute();
     if ($result1->rowCount() > 0 && $email == "admin@admin.com") {
-        // sleep(2);
+        $LoggedIn = true;
+        sleep(2);
+        session_start();
         $_SESSION['admin'] = "Admin logged In";
         header("Location: mainMenu.php");
     } else {
