@@ -72,9 +72,6 @@ session_start();
             echo "<b>Please login to use this CRUD system</b>";
             echo "<td><a class='btn btn-danger btn-modal btn-md' id='login' href='index.php'>Click To Login</a></td>";
             echo "<script>$(':button').prop('disabled', true);</script>";
-        } else {
-            echo "<form action='disconnect.php'><input type='submit' id='logout' value='Logout' class='btn btn-danger'></form>";
-            echo "<script>$('button').prop('enabled', true);</script>";
         }
         ?>
     </div>
