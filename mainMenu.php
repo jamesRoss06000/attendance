@@ -69,9 +69,6 @@ if (!isset($_SESSION['admin'])) {
             </div>
         </div>
     </div>
-    <?php
-    require_once("ifSessionNotSet.php");
-    ?>
 </body>
 
 </html>
