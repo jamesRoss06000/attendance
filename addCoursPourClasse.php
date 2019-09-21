@@ -1,5 +1,7 @@
 <?php
 require_once("addCoursPourClasseTreatment.php");
+require_once("ifSessionNotSet.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

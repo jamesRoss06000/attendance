@@ -1,5 +1,7 @@
 <?php
 require_once("addGroupOfStudentsTreatment.php");
+require_once("ifSessionNotSet.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,8 +24,8 @@ require_once("addGroupOfStudentsTreatment.php");
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <?php
-            echo implode(" ", $errors);
-            ?>
+                echo implode(" ", $errors);
+                ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -60,9 +62,8 @@ require_once("addGroupOfStudentsTreatment.php");
                     <button type="submit" class="btn btn-success btn-width">Ajouter information</button>
                     <a href="mainMenu.php" class="btn btn-danger btn-width">Annule / Retour</a>
                 </div>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </body>
 

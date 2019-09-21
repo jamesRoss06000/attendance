@@ -1,6 +1,7 @@
 <?php
 require_once("addAbsencesTreatment.php");
 require_once("connection.php");
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +45,8 @@ require_once("connection.php");
     if (isset($errors) && sizeof($errors) > 0) { ?>
         <div class="alert alert-danger alert-dismissible" role="alert">
             <?php // $errors is an array we turn to a string using the IMPLODE fonction 
-            echo implode(" ", $errors);
-            ?>
+                echo implode(" ", $errors);
+                ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -108,6 +109,13 @@ require_once("connection.php");
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        echo "<b>Please login to use this system</b>";
+        echo "<td><a class='btn btn-danger btn-modal btn-md' id='login' href='index.php'>Click To Login</a></td>";
+        echo "<script>$(':button').prop('disabled', true);</script>";
+    }
+    ?>
     <script>
         $(document).ready(function() {
             var etudiantBlocked = $("#etudiant");
