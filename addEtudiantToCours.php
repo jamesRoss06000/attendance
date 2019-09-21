@@ -1,9 +1,6 @@
 <?php
 require_once("addEtudiantToCoursTreatment.php");
 session_start();
-if (!isset($_SESSION['admin'])) {
-    require_once("ifSessionNotSet.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -141,6 +138,11 @@ if (!isset($_SESSION['admin'])) {
             </form>
         </div>
     </div>
+    <?php
+    if (!isset($_SESSION['admin'])) {
+        require_once("ifSessionNotSet.php");
+    }
+    ?>
     <script>
         $(document).ready(function() {
             var etudiantBlocked = $("#etudiant");
