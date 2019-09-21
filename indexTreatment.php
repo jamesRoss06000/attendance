@@ -6,7 +6,7 @@ if (isset($_POST["email"], $_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    $sql = $conn->prepare("SELECT email, password, role FROM users WHERE email = :email AND password = :password");
+    $sql = $conn->prepare("SELECT * FROM users WHERE email = :email AND password = :password");
     $sql->bindParam(':email', $email);
     $sql->bindParam(':password', $password);
     $sql->execute();
