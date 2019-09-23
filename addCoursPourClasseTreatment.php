@@ -42,9 +42,7 @@ if (isset($_POST["classe"])) {
         $row = 1;
         if (($handle = fopen($_FILES["fileUpload"]["tmp_name"], "r")) !== FALSE) {
             while (($data = fgetcsv($handle, 0, ";")) !== FALSE) {
-                // $num = count($data);
-                // print_r($data);
-                if ($row > 1) {
+                // if ($row > 1) {
                     $dateFile = explode("/", $data[0]);
                     $origDate = date("Y-m-d", mktime(0, 0, 0, $dateFile[1], $dateFile[0], $dateFile[2]));
                     $date = $origDate;
@@ -77,7 +75,7 @@ if (isset($_POST["classe"])) {
                         ':debut_pm' => $debut_pm, ':fin_pm' => $fin_pm, ':intervenant_name' => $intervenant_name,
                         'intervenant_id' => $intervenant_id, ':classe' => $classe, ':nom' => $nom]);
                     }
-                }
+                // }
                 $row++;
             }
             fclose($handle);
