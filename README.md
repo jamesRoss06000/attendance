@@ -7,9 +7,5 @@ Launch web-side application using address created on Heroku. Web address supplie
 
 Create new APK file using code from Attendance App folder, drag and drop onto Android mobile phone and install (ideally through google play or directly from computer). Launch app using user email and password to access agenda and add rdv function.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 You're done !
 =======
-You're done !
->>>>>>> 053a2d06462063af4f125e9a8a133054d740acf8
