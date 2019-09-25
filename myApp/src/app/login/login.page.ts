@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-// import { Injectable } from '@angular/core';
+// import { Observable } from 'rxjs';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -14,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginPage implements OnInit {
 
-  authState$: Observable<boolean>;
+  // authState$: Observable<boolean>;
 
   constructor(private Auth: AuthService, public http: HttpClient) { }
 
