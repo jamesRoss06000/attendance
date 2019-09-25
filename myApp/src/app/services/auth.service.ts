@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NavController } from '@ionic/angular';
+// import { NavController } from '@ionic/angular';
 import { Router, NavigationExtras } from '@angular/router';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { Router, NavigationExtras } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, public navCtrl: NavController, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
+  // public navCtrl: NavController,
 
   getUserDetails(email, password) {
     return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/auth.php', {
