@@ -30,12 +30,10 @@ export class RdvPage implements OnInit {
   onSelectChange(event) {
     if (event.target) {
       this.classes.value = true;
-      console.log(event.target.value);
       const chosenClasse = event.target.value;
       const url = window.location.href;
       const id = url.substring(url.lastIndexOf('/') + 1);
       this.rdvListStudents(chosenClasse, id);
-      console.log("test");
     }
     else {
       this.classes.value = false;
@@ -69,7 +67,6 @@ export class RdvPage implements OnInit {
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.addRdv(classe, name, date, time, timeEnd, lieu, id);
-    console.log(id, classe, name, date, time, lieu);
   }
 
   addRdv(classe, name, date, time, timeEnd, lieu, id) {
@@ -82,7 +79,6 @@ export class RdvPage implements OnInit {
       lieu
     })
       .subscribe(data => {
-        // this.names = Object.values(data);
         this.router.navigate(['/home/', id]);
       },
         error => {
