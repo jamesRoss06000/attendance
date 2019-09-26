@@ -1,11 +1,8 @@
-import { Component, ViewChild, Inject, LOCALE_ID } from '@angular/core';
+import { Component, Inject, LOCALE_ID } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-// import { CalendarComponent } from 'ionic2-calendar/calendar';
 import * as moment from 'moment';
-// import { AlertController } from '@ionic/angular';
-
 @Component({
   selector: 'app-teacherdate',
   templateUrl: 'teacherdate.page.html',
