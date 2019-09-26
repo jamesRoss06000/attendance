@@ -2,9 +2,9 @@ import { Component, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CalendarComponent } from 'ionic2-calendar/calendar';
+// import { CalendarComponent } from 'ionic2-calendar/calendar';
 import * as moment from 'moment';
-import { AlertController } from '@ionic/angular';
+// import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-teacherdate',
@@ -15,7 +15,7 @@ export class TeacherdatePage {
   planning: any;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute,
-    private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
+    @Inject(LOCALE_ID) private locale: string) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.planning = this.router.getCurrentNavigation().extras.state.planning;
@@ -47,38 +47,21 @@ export class TeacherdatePage {
             this.eventSource.push(eventTmp);
           });
         });
-        // this.myCal.loadEvents();
       }
     });
   }
-
-  // @ViewChild(CalendarComponent) myCal: CalendarComponent;
-
-  // minDate = new Date().toISOString();
-
+  // eventSource array et viewTitle déclaré
   eventSource = [];
   viewTitle;
 
-  // 
+  // Calendar display and current date set
   calendar = {
     mode: 'month',
     currentDate: new Date(),
   }
 
   ngOnInit() {
-    // this.resetEvent();
   }
-
-  // resetEvent() {
-  //   this.event = {
-  //     title: "",
-  //     desc: '',
-  //     startTime: new Date().toISOString(),
-  //     endTime: new Date().toISOString(),
-  //     allDay: false,
-  //     classId: ""
-  //   };
-  // }
 
   // Modifier le mois/semaine/jour en cours
   next() {
