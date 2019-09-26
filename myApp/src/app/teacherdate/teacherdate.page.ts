@@ -69,7 +69,7 @@ export class TeacherdatePage {
   }
 
   ngOnInit() {
-    this.resetEvent();
+    // this.resetEvent();
   }
 
   // resetEvent() {
