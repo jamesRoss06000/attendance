@@ -50,12 +50,13 @@ export class TeacherdatePage {
           });
 
         });
+        // Ajoute un événement au calendrier lors du chargement de la page
         this.myCal.loadEvents();
       }
     });
   }
 
-  @ViewChild(CalendarComponent) myCal: CalendarComponent;
+  // @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
   minDate = new Date().toISOString();
 
@@ -66,15 +67,6 @@ export class TeacherdatePage {
     mode: 'month',
     currentDate: new Date(),
   }
-
-  // event = {
-  //   title: "",
-  //   desc: '',
-  //   startTime: '',
-  //   endTime: "",
-  //   allDay: false,
-  //   classId: ""
-  // };
 
   ngOnInit() {
     this.resetEvent();
