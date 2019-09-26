@@ -51,7 +51,7 @@ export class TeacherdatePage {
 
         });
         // Ajoute un événement au calendrier lors du chargement de la page
-        this.myCal.loadEvents();
+        // this.myCal.loadEvents();
       }
     });
   }
