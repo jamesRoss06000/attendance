@@ -8,9 +8,7 @@ $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
 
 if (isset($_POST["id"])) {
-
     $id = $_POST['id'];
-
     $stmt = $conn->prepare("SELECT * FROM planning WHERE intervenant_id = :id ORDER BY `debut_am` ASC");
     $stmt->execute([':id' => $id]);
 

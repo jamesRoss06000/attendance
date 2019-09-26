@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+// import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class RdvPage implements OnInit {
   classes: any;
   lieux: any;
   names: any;
-  authState$: Observable<boolean>;
+  // authState$: Observable<boolean>;
   value: any;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute) {

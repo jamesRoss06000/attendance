@@ -26,7 +26,6 @@ export class HomePage {
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.Auth.getCalendarDates(id);
-    // this.router.navigate(['/teacherdate/', id]);
   }
 
   addRdv(event) {

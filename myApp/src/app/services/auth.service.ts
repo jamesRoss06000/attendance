@@ -60,7 +60,6 @@ export class AuthService {
     return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/calendarTeacher.php', {
       id
     }).subscribe(data => {
-      console.log(Object.values(data));
       let planningData = Object.values(data);
       const id = planningData[0].intervenant_id;
       let navExtras: NavigationExtras = {
