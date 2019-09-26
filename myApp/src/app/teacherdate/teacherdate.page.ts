@@ -1,7 +1,6 @@
 import { Component, ViewChild, Inject, LOCALE_ID } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { HttpClient } from '@angular/common/http';
-// import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 import * as moment from 'moment';
@@ -14,7 +13,6 @@ import { AlertController } from '@ionic/angular';
 })
 export class TeacherdatePage {
   planning: any;
-  // authState$: Observable<boolean>;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute, private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
     this.route.queryParams.subscribe(params => {
