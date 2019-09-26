@@ -15,7 +15,7 @@ export class TeacherdatePage {
   planning: any;
 
   constructor(private Auth: AuthService, public http: HttpClient, private router: Router, private route: ActivatedRoute,
-     private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
+    private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.planning = this.router.getCurrentNavigation().extras.state.planning;
@@ -30,13 +30,11 @@ export class TeacherdatePage {
           }
           // ^^ Les heures de début et de fin de chaque ligne (chaque leçon dans la planification) 
           // sont poussées dans le tableau dateEvent.
-
-          // 
           dateEvent.forEach(d => {
-          // Les heures de début et de fin sont ajoutées à la date.
+            // Les heures de début et de fin sont ajoutées à la date.
             let dateStartEvent = element.date + " " + d[0];
             let dateEndEvent = element.date + " " + d[1];
-          // 'eventTmp' est rempli de valeurs d'élément
+            // 'eventTmp' est rempli de valeurs d'élément
             let eventTmp = {
               title: element.cours,
               desc: element.lieux + " " + element.adresse,
@@ -45,12 +43,10 @@ export class TeacherdatePage {
               allDay: false,
               id: element.id_planning
             }
-          // new event pushed into eventSource array
+            // new event pushed into eventSource array
             this.eventSource.push(eventTmp);
           });
-
         });
-        // Ajoute un événement au calendrier lors du chargement de la page
         // this.myCal.loadEvents();
       }
     });
@@ -58,11 +54,12 @@ export class TeacherdatePage {
 
   // @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  minDate = new Date().toISOString();
+  // minDate = new Date().toISOString();
 
   eventSource = [];
   viewTitle;
 
+  // 
   calendar = {
     mode: 'month',
     currentDate: new Date(),
@@ -122,7 +119,7 @@ export class TeacherdatePage {
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.router.navigate(['/home/', id]);
   }
-  
+
   // Même fonction sur chaque page (sauf login).Redirige l'utilisateur vers la 
   // page '/login'.
   logout() {
