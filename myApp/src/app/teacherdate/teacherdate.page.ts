@@ -72,16 +72,16 @@ export class TeacherdatePage {
     this.resetEvent();
   }
 
-  resetEvent() {
-    this.event = {
-      title: "",
-      desc: '',
-      startTime: new Date().toISOString(),
-      endTime: new Date().toISOString(),
-      allDay: false,
-      classId: ""
-    };
-  }
+  // resetEvent() {
+  //   this.event = {
+  //     title: "",
+  //     desc: '',
+  //     startTime: new Date().toISOString(),
+  //     endTime: new Date().toISOString(),
+  //     allDay: false,
+  //     classId: ""
+  //   };
+  // }
 
   // Modifier le mois/semaine/jour en cours
   next() {
