@@ -4,7 +4,7 @@ header("Access-Control-Allow-Headers: Origin, Content-Type");
 require_once("connection2.php");
 $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
-//var_dump($_POST);
+
 if (isset($_POST["date"])) {
     $origDate = date("Y-m-d", strtotime($_POST['date']));
     $date = $origDate;
@@ -17,7 +17,6 @@ if (isset($_POST["date"])) {
     $classe = $details[0]['classe'];
     $nom = $details[0]['nom'];
     $lieux = $details[0]['lieux'];
-    // var_dump($lieux);
 
     $stmt = $conn->prepare("SELECT * FROM users WHERE `nom` = :nom AND `classe` = :classe");
     $stmt->execute([':nom' => $nom, ':classe' => $classe]);
@@ -38,9 +37,4 @@ if (isset($_POST["date"])) {
             echo json_encode($newOutput1);
         }
     }
-    // $conn->close();
 }
-// else{
-//     $errors = "No data found for this date!";
-// echo json_encode($errors);
-// }
