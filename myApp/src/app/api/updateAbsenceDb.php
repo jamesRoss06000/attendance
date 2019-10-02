@@ -19,9 +19,9 @@ if (isset($_POST["etudiant_id"])) {
     $classe = $_POST['classe'];
     $etudiant_nom = $_POST['etudiant_nom'];
     $etudiant_id = $_POST['etudiant_id'];
-    $justified = 'Non';
-    $query = $conn->prepare("INSERT INTO `absences`(`id`, `date`, `cours`, `classe`, `etudiant`, `etudiant_id`, `justified`, `justificatif`) VALUES (NULL, :date, :cours, :classe, :etudiant_nom, :etudiant_id, ':justified', '')");
-    $query->execute([':date' => $date, ':cours' => $cours, ':classe' => $classe, ':etudiant_nom' => $etudiant_nom, ':etudiant_id' => $etudiant_id, ':justified' => $justified]);
+    // $justified = 'Non';
+    $query = $conn->prepare("INSERT INTO `absences`(`id`, `date`, `cours`, `classe`, `etudiant`, `etudiant_id`, `justified`, `justificatif`) VALUES (NULL, :date, :cours, :classe, :etudiant_nom, :etudiant_id, '', '')");
+    $query->execute([':date' => $date, ':cours' => $cours, ':classe' => $classe, ':etudiant_nom' => $etudiant_nom, ':etudiant_id' => $etudiant_id]);
     $success = "Absence added to database";
     echo json_encode($success);
 }
