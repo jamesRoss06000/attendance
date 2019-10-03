@@ -22,12 +22,14 @@ export class HomePage {
   }
 
   goToDateSelect(event) {
+    event.preventDefault();
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.Auth.getCalendarDates(id);
   }
 
   addRdv(event) {
+    event.preventDefault();
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
     this.Auth.getRdvInfo(id);
