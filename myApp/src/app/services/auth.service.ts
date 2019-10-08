@@ -138,30 +138,31 @@ export class AuthService {
       });
   }
 
-  getStudentCours(date, id) {
-    return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/getStudentCours.php?id=' + id, {
-      date,
-    }).subscribe(data => {
-      console.log(Object.values(data));
-      let planningData = Object.values(data);
-      const grabArray = planningData[0];
-      const classe = grabArray.classe;
-      if (classe !== undefined) {
-        let navExtras: NavigationExtras = {
-          state: {
-            planning: planningData,
-          }
-        }
-        this.router.navigate(['/agenda/', id], navExtras);
-      };
-      if (planningData.length == 27) {
-        alert("Aucune leçon prévue pour cette date")
-      }
-    },
-      error => {
-        console.log(error);
-      });
-  }
+  // OLD CODE BELOW FOR OLD PAGE? NOT USED ANYMORE
+  // getStudentCours(date, id) {
+  //   return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/getStudentCours.php?id=' + id, {
+  //     date,
+  //   }).subscribe(data => {
+  //     console.log(Object.values(data));
+  //     let planningData = Object.values(data);
+  //     const grabArray = planningData[0];
+  //     const classe = grabArray.classe;
+  //     if (classe !== undefined) {
+  //       let navExtras: NavigationExtras = {
+  //         state: {
+  //           planning: planningData,
+  //         }
+  //       }
+  //       this.router.navigate(['/agenda/', id], navExtras);
+  //     };
+  //     if (planningData.length == 27) {
+  //       alert("Aucune leçon prévue pour cette date")
+  //     }
+  //   },
+  //     error => {
+  //       console.log(error);
+  //     });
+  // }
 
   getRdvInfo(id) {
     return this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/getRdvInfo.php?id=' + id, {
