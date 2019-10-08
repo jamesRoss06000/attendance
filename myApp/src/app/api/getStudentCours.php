@@ -20,7 +20,7 @@ if (isset($_POST["date"])) {
     $studentClasse = $studentDetails[0]['classe'];
     $studentNom = $studentDetails[0]['nom'];
                                                 //    WHERE `classe` = 'G1C1' AND `nom` = NULL OR `nom` = 'AAA'      OR (`nom` = :studentNom)          
-    $stmt = $conn->prepare("SELECT * FROM planning WHERE (`classe` = :studentClasse AND `nom` IS NULL) AND `date` = :date ORDER BY `debut_am` ASC");
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE `nom` = :studentNom AND `date` = :date ORDER BY `debut_am` ASC");
     // $stmt = $conn->prepare("SELECT * FROM planning WHERE `classe` = (:studentClasse OR :studentNom) AND `date` = :date ORDER BY `debut_am` ASC");
     $stmt->execute([':date' => $date, ':studentClasse' => $studentClasse, ':studentNom' => $studentNom]);
 
