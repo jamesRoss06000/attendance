@@ -24,12 +24,12 @@ if (isset($_POST["name"], $_POST["lieu"])) {
     $name = $_POST['name'];
 
     if ($time < 12) {
-        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`,`intervenant_name`, `intervenant_id`, `classe`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :name)");
+        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_am`, `fin_am`,`intervenant_name`, `intervenant_id`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :name)");
         $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':time' => $time, ':timeEnd' => $timeEnd, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':name' => $name]);
         $success = "RDV added";
         echo json_encode($success);
     } else {
-        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_pm`, `fin_pm`,`intervenant_name`, `intervenant_id`, `classe`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :name)");
+        $sql = $conn->prepare("INSERT INTO `planning`(`id_planning`, `date`, `lieux`, `adresse`, `cours`, `theme`, `debut_pm`, `fin_pm`,`intervenant_name`, `intervenant_id`, `nom`) VALUES (NULL, :date, :lieux, :adresse, :cours, :theme, :time, :timeEnd, :intervenant_name, :intervenant_id, :name)");
         $sql->execute([':date' => $date, ':lieux' => $lieux, ':adresse' => $adresse, ':cours' => $cours, ':theme' => $theme, ':time' => $time, ':timeEnd' => $timeEnd, ':intervenant_name' => $intervenant_name, 'intervenant_id' => $intervenant_id, ':name' => $name]);
         $success = "RDV added";
         echo json_encode($success);
