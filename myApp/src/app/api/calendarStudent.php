@@ -17,7 +17,7 @@ if (isset($_POST["id"])) {
     $name = $userDetails[0]['nom'];
     $classe = $userDetails[0]['classe'];
 
-    $stmt = $conn->prepare("SELECT * FROM planning WHERE `nom` = :name OR (`classe` = :classe AND `nom` IS NULL)");
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE (`classe` = 'G1C1' AND `nom` = ' ') OR `nom` = :name ");
     $stmt->execute([':name' => $name, ':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {
