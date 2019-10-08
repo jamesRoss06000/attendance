@@ -19,8 +19,8 @@ if (isset($_POST["date"])) {
     $studentDetails = $getStudent->fetchAll();
     $studentClasse = $studentDetails[0]['classe'];
     $studentNom = $studentDetails[0]['nom'];
-
-    $stmt = $conn->prepare("SELECT * FROM planning WHERE `classe` = :studentClasse AND `nom` = NULL OR `nom` = :studentNom AND `date` = :date ORDER BY `debut_am` ASC");
+                                                //    WHERE `classe` = 'G1C1' AND `nom` = NULL OR `nom` = 'AAA'
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE `(classe` = :studentClasse AND `nom` = NULL) OR (`nom` = :studentNom) AND `date` = :date ORDER BY `debut_am` ASC");
     // $stmt = $conn->prepare("SELECT * FROM planning WHERE `classe` = (:studentClasse OR :studentNom) AND `date` = :date ORDER BY `debut_am` ASC");
     $stmt->execute([':date' => $date, ':studentClasse' => $studentClasse, ':studentNom' => $studentNom]);
 
