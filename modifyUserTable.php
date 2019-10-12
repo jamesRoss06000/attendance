@@ -8,9 +8,7 @@ $request = $result->execute();
 echo "<table border='1' id='myTable'>";
 echo "<thead><tr><th>Id</th><th>Nom</th><th>Telephone</th><th>Email</th><th>Mot de pass</th><th>Role</th><th>Classe</th><th>Supprimez une ligne</th><th>Modifiez une ligne</th></tr></thead>\n";
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    if ($row['id'] == 1){
-        return;
-    } else {
+    if ($row['id'] > 1){
     echo "<tr>";
     foreach ($row as $key => $value) {
         echo "<td>$value</td>";
