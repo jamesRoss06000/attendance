@@ -69,7 +69,7 @@ export class RdvPage implements OnInit {
     this.addRdv(name, date, time, timeEnd, lieu, id);
   }
 
-  addRdv(date, time, timeEnd, lieu, id) {
+  addRdv(name, date, time, timeEnd, lieu, id) {
     this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/addRdv.php?id=' + id, {
       name,
       date,
