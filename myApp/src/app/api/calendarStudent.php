@@ -17,15 +17,8 @@ if (isset($_POST["id"])) {
     $name = $userDetails[0]['nom'];
     $classe = $userDetails[0]['classe'];
 
-    $stmtC = $conn->prepare("SELECT * FROM classes WHERE `classe` = :classe");
-    $stmtC->execute([':classe' => $classe]);
-        $classOutput = array();
-        $classOutput = $stmtC->fetchAll();
-        $startDate = $classOutput[0]['debut_cours'];
-        $endDate = $classOutput[0]['fin_cours'];
-
-    $stmt = $conn->prepare("SELECT * FROM planning WHERE `classe` = :classe OR `nom` = :name AND [Date] BETWEEN ':startDate' AND ':endDate 23:59:59'");
-    $stmt->execute([':name' => $name, ':classe' => $classe, ':startDate' => $startDate, ':endDate' => $endDate]);
+    $stmt = $conn->prepare("SELECT * FROM planning WHERE `nom` = :name OR `classe` = :classe");
+    $stmt->execute([':name' => $name, ':classe' => $classe]);
 
     if ($stmt->rowCount() > 0) {
         $output = array();
