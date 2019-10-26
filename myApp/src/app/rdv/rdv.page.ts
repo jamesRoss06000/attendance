@@ -55,7 +55,7 @@ export class RdvPage implements OnInit {
   createRdv(event) {
     event.preventDefault();
     const target = event.target;
-    const classe = target.querySelector('#classe').value;
+    const classe = '';
     const name = target.querySelector('#name').value;
     var strDate = target.querySelector('#date').value;
     let date = strDate.substring(0, 10);
