@@ -66,12 +66,11 @@ export class RdvPage implements OnInit {
     const lieu = target.querySelector('#lieu').value;
     const url = window.location.href;
     const id = url.substring(url.lastIndexOf('/') + 1);
-    this.addRdv(classe, name, date, time, timeEnd, lieu, id);
+    this.addRdv(name, date, time, timeEnd, lieu, id);
   }
 
-  addRdv(classe, name, date, time, timeEnd, lieu, id) {
+  addRdv(date, time, timeEnd, lieu, id) {
     this.http.post('https://attendance-ics.herokuapp.com/myApp/src/app/api/addRdv.php?id=' + id, {
-      classe,
       name,
       date,
       time,
