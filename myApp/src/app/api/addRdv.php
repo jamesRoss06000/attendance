@@ -20,7 +20,7 @@ if (isset($_POST["name"], $_POST["lieu"])) {
     $getTeacher->execute([':intervenant_id' => $intervenant_id]);
     $intervenantList = $getTeacher->fetchAll();
     $intervenant_name = $intervenantList[0]['nom'];
-    $classe = $_POST[''];
+    $classe = '';
     $name = $_POST['name'];
 
     if ($time < 12) {
