@@ -1,9 +1,11 @@
 <?php
-// See comments below for explanation on use of PDO connection 
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
+// See comments below for explanation on use of PDO connection - 
 $dbServerName = "remotemysql.com";
-$dbUserName = "TnuAWjwlHS";
-$dbPassword = "SaXj67gCa7";
-$dbName = "TnuAWjwlHS";
+$dbUserName = getenv('DATABASE_USER_NAME');
+$dbPassword = getenv('DATABASE_PASSWORD');
+$dbName = getenv('DATABASE_NAME');
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$dbServerName;dbname=$dbName;charset=$charset";
@@ -25,3 +27,7 @@ try {
 // username and password go to constructor;
 // all other options go into options array.
 // where DSN is a semicolon-delimited string, consists of param=value pairs, that begins from the driver name and a colon
+
+
+// Below is for the small requests for select option boxes
+$connect = new mysqli('remotemysql.com', 'TnuAWjwlHS', 'SaXj67gCa7', 'TnuAWjwlHS');
