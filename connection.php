@@ -1,6 +1,6 @@
 <?php
-$dotenv = Dotenv\Dotenv::create(__DIR__);
-$dotenv->load();
+// $dotenv = Dotenv\Dotenv::create(__DIR__);
+// $dotenv->load();
 // See comments below for explanation on use of PDO connection - 
 $dbServerName = "remotemysql.com";
 $dbUserName = 'TnuAWjwlHS';
