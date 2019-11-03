@@ -1,11 +1,11 @@
 <?php
-// $dotenv = Dotenv\Dotenv::create(__DIR__);
-// $dotenv->load();
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
 // See comments below for explanation on use of PDO connection - 
 $dbServerName = "remotemysql.com";
-$dbUserName = 'TnuAWjwlHS';
-$dbPassword = 'SaXj67gCa7';
-$dbName = 'TnuAWjwlHS';
+$dbUserName = getenv('DATABASE_USER_NAME');
+$dbPassword = getenv('DATABASE_PASSWORD');
+$dbName = getenv('DATABASE_NAME');
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$dbServerName;dbname=$dbName;charset=$charset";
