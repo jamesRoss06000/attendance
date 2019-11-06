@@ -1,21 +1,24 @@
 <?php
-// $dotenv = Dotenv\Dotenv::create(__DIR__);
-// $dotenv->load();
-// See comments below for explanation on use of PDO connection - 
-$dbServerName = "remotemysql.com";
-$dbUserName = 'TnuAWjwlHS';
-$dbPassword = 'SaXj67gCa7';
-$dbName = 'TnuAWjwlHS';
-$charset = 'utf8mb4';
+$user = getenv('USERNAME');
+$pass = getenv('PASSWORD');
 
-$dsn = "mysql:host=$dbServerName;dbname=$dbName;charset=$charset";
+$dbServerName = "remotemysql.com";
+$dbUserName = $user;
+$dbPassword = $pass;
+$dbName = $user;
+
+
+// See comments below for explanation on use of PDO connection - 
+
+
+$dsn = "mysql:host=$dbServerName;dbname=$user;charset=$charset";
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 try {
-    $conn = new PDO($dsn, $dbUserName, $dbPassword, $options);
+    $conn = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
     throw new \PDOException($e->getMessage(), (int) $e->getCode());
 }
