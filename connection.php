@@ -1,10 +1,10 @@
 <?php
-// $user = getenv('USERNAME');
-// $pass = getenv('PASSWORD');
+$user = getenv('USERNAME');
+$pass = getenv('PASSWORD');
 
 $dbServerName = "remotemysql.com";
-$dbUserName = 'TnuAWjwlHS';
-$dbPassword = 'SaXj67gCa7';
+$dbUserName = $user;
+$dbPassword = $pass;
 $dbName = 'TnuAWjwlHS';
 $charset = 'utf8mb4';
 
