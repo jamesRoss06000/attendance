@@ -1,11 +1,12 @@
 <?php
 $user = getenv('USERNAME');
 $pass = getenv('PASSWORD');
+$data = getenv('DATABASE');
 
 $dbServerName = "remotemysql.com";
 $dbUserName = $user;
 $dbPassword = $pass;
-$dbName = 'TnuAWjwlHS';
+$dbName = $data;
 $charset = 'utf8mb4';
 
 // See comments below for explanation on use of PDO connection - y
